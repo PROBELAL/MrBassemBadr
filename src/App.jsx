@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
 
 
 import Header from "./Header/Header";
@@ -9,29 +9,27 @@ import CartItem from "./CartItem/CartItem"
 
 const App = () => {
   return (
-    <BrowserRouter>
-      
-      <Header /> 
-      
-      <Routes>
-        
-        <Route 
-          path="/E-Commerce" 
-          element={
-            <>
-              <Slider/>
-              <PizzaSection />
-              
+   <HashRouter>
+  <Header /> 
+  
+  <Routes>
+   
+    <Route 
+      path="/" 
+      element={
+        <>
+          <Slider/>
+          <PizzaSection />
+        </>
+      } 
+    />
+    
+    <Route path="/cart" element={<Cart />} />
 
-            </>
-          } 
-        />
-        
-        
-        <Route path="/cart" element={<Cart />} />
-      </Routes>
-
-    </BrowserRouter>
+    
+    <Route path="*" element={<Navigate to="/" replace />} />
+  </Routes>
+  </HashRouter>
   );
 };
 
