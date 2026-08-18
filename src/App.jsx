@@ -16,7 +16,7 @@ const App = () => {
       <Routes>
         
         <Route 
-          path="/" 
+          path="/E-Commerce" 
           element={
             <>
               <Slider/>
