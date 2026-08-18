@@ -1,0 +1,54 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; 
+    align-items: flex-start; 
+    padding: 40px 5%; 
+    gap: 20px;
+}
+
+.Purchese, .purchese-info {
+    background-color: #FFFFFF; 
+    border-radius: 20px; 
+ 
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05); 
+   
+    border: 1px solid #F1F1F1; 
+    padding: 30px; 
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+}
+
+.Purchese {
+    width: 65%; 
+}
+
+.purchese-info {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 30%;
+}
+
+.purchases-container button{
+    padding: 6%;
+    background-color: #E63946;
+    border: none;
+    border-radius:20px ;
+    cursor: pointer;
+    color: white;
+    box-shadow: 0 4px 0 #B32332, 0 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.15s ease;
+}
+
+.purchases-container button:hover {
+    transform: translateY(-2px); 
+    box-shadow: 0 6px 0 #B32332, 0 12px 20px rgba(0, 0, 0, 0.15); 
+    background-color: #f04351; 
+}
+
+
+.purchases-container button:active {
+    transform: translateY(4px); 
+    box-shadow: 0 0 0 #B32332, 0 2px 5px rgba(0, 0, 0, 0.1); 
+}
