@@ -1,23 +1,135 @@
-.container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
 
+.container {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
-.title{
-    
-  margin-top: 6rem;
-  font-size: 2rem;
-  font-weight: bold;
-   color: #1D3557;
+
+
+.title {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #1D3557;
 }
+
+
 .cards {
     display: grid;
-    
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px; /* مسافة بين الكروت */
-    padding: 20px;
-    
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+    align-items: stretch;
+}
+
+
+.addBtn {
+    background-color: transparent;
+    border: 2px dashed #457B9D;
+    border-radius: 12px;
+    font-size: 40px;
+    color: #457B9D;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    min-height: 300px;
+    transition: all 0.3s ease;
+}
+
+.addBtn:hover {
+    background-color: #F1FAEE;
+    border-color: #E63946;
+    color: #E63946;
+}
+
+
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+
+.modalContent {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+    width: 450px;
+    max-width: 90%;
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.modalContent h3 {
+    margin-bottom: 20px;
+    color: #1D3557;
+    text-align: center;
+}
+
+
+.closeBtn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #E63946;
+    color: white;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.2s;
+}
+
+.closeBtn:hover {
+    background-color: #d32f2f;
+}
+
+
+.addForm {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.addForm input,
+.addForm textarea {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.addForm input:focus,
+.addForm textarea:focus {
+    border-color: #457B9D;
+}
+
+.addForm button[type="submit"] {
+    background-color: #1D3557;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.addForm button[type="submit"]:hover {
+    background-color: #457B9D;
 }

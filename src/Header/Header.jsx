@@ -1,11 +1,14 @@
-import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import logoImg from "../assets/logo2.png";
 import styles from "./Header.module.css";
 import { FaShoppingCart } from "react-icons/fa";
+import { useSelector, useDispatch } from "react-redux"
+import {toggleIsLoggedIn, toggleIsAdmin} from "../Store/AuthSlice"
 
 const Header = () => {
     const cartItems = useSelector((state) => state.cartReducer.items);
+    const isAdmin = useSelector((state)=>state.AuthReducer.isAdmin);
+    const dispatch= useDispatch();
     return (
         <header className={styles.headerContainer}>
            
@@ -19,17 +22,20 @@ const Header = () => {
                 <li><a href="#pizza-section">Pizza</a></li>
             </ul>
             
-           
-            <Link to="/cart" className={styles.cartIconContainer}>
-                <FaShoppingCart size={24} />
+           <div className={styles["headerFuncs"]}>
+                <Link to="/cart" className={styles.cartIconContainer}>
+                    <FaShoppingCart size={24} />
+                    
+                    
+                    {cartItems.length > 0 && (
+                        <span className={styles.badge}>
+                            {cartItems.length}
+                        </span>
+                    )}
+                </Link>
+                <button onClick={() => dispatch(toggleIsAdmin())}>isAdmin</button>
+            </div>
                 
-                
-                {cartItems.length > 0 && (
-                    <span className={styles.badge}>
-                        {cartItems.length}
-                    </span>
-                )}
-            </Link>
         </header>
     );
 }

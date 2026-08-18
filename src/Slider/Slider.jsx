@@ -4,7 +4,7 @@ import sliderImg2 from "../assets/imgSlider2.jpg";
 import sliderImg3 from "../assets/imgSlider3.jpg";
 
 const Slider = () => {
-    // دي الدالة اللي هتحرك السلايدر للصورة المطلوبة بدقة
+    
     const handleScrollToImage = (imageId) => {
         const imageElement = document.getElementById(imageId);
         if (imageElement) {
