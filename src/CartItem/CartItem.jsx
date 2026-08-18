@@ -5,6 +5,11 @@ import { removeItem } from "../Store/cartSlice";
 
 const CartItem = ({ item }) => {
     const dispatch = useDispatch();
+    function handleDelete(e){
+        e.stopPropagation();
+        dispatch(removeItem(item.uniqueId));
+
+    }
 
     return (
         <div className={styles.cartItem}>
@@ -23,7 +28,7 @@ const CartItem = ({ item }) => {
             
             <button 
                 className={styles.removeBtn} 
-                onClick={() => dispatch(removeItem(item.uniqueId))}
+                onClick={(e)=>handleDelete(e)}
             >
                 <FaRegTrashAlt />
             </button>

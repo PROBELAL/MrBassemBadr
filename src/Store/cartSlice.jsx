@@ -12,7 +12,7 @@ const cartSlice = createSlice({
        
         addItem: (state, action) => {
             
-           const newItem = { ...action.payload, uniqueId: Date.now() }; 
+           const newItem = { ...action.payload, uniqueId: Date.now().toString() + Math.random().toString(36).substr(2, 9) }; 
             state.items.push(newItem);
         },
 

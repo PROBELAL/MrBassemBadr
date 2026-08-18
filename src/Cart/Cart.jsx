@@ -16,7 +16,7 @@ const Cart = () => {
         <>
         <section className={styles["container"]}>
                 <div className={styles["Purchese"]}>
-                    {cartItems.map((item)=><CartItem key={item.id} item={item}/>)}
+                    {cartItems.map((item)=><CartItem key={item.uniqueId} item={item}/>)}
 
                 </div>
                 <div className={styles["purchese-info"]}>
