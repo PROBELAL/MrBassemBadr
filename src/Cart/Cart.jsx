@@ -8,7 +8,7 @@ const Cart = () => {
     const handleConfirmation=()=>{
         if(total_cost>0){
             const phoneNumber = "201094752357";
-            const message =`طلبك فى الطريق اليك بسعر ${total_cost}شامل التوصيل خلاص 45 دقيقه `;
+            const message =`طلبك فى الطريق اليك بسعر ${total_cost}شامل التوصيل خلال 45 دقيقه `;
             const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
             window.open(url, '_blank'); 
         }
