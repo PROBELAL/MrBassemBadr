@@ -18,8 +18,8 @@ const Header = () => {
             
             <ul className={styles["nav-links"]}>
                 <li><a href="#pizza-section">Pizza</a></li>
-                <li><a href="#pizza-section">Pizza</a></li>
-                <li><a href="#pizza-section">Pizza</a></li>
+                <li><a href="#burger-section">Burger</a></li>
+                <li><a href="#shawerma-section">Shawerma</a></li>
             </ul>
             
            <div className={styles["headerFuncs"]}>

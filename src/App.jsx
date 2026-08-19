@@ -6,6 +6,8 @@ import Slider from "./Slider/Slider";
 import PizzaSection from "./PizzaSection/PizzaSection";
 import Cart from "./Cart/Cart"; 
 import CartItem from "./CartItem/CartItem"
+import BurgerSection from "./Burger/BurgerSection"
+import ShawermaSection from "./ShawermaSection/ShawermaSection"
 
 const App = () => {
   return (
@@ -20,6 +22,8 @@ const App = () => {
         <>
           <Slider/>
           <PizzaSection />
+          <BurgerSection />
+          <ShawermaSection />
         </>
       } 
     />

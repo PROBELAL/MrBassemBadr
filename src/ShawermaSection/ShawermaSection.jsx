@@ -1,28 +1,29 @@
-import styles from "./PizzaSection.module.css"
+import styles from "./ShawermaSection.module.css"
 import { useSelector, useDispatch } from "react-redux"
 import { useState } from "react"
 import Card from "../Card/Card"
 import { addProduct } from "../Store/ProductSlice" 
-import { GiFullPizza } from "react-icons/gi";
+import { GiFullPizza } from "react-icons/gi"; 
 import { TbMeat } from "react-icons/tb";
 import { LuSalad } from "react-icons/lu";
 
-const PizzaSection = () => {
+const ShawermaSection = () => {
     const dispatch = useDispatch();
     const Products = useSelector((state) => state.ProductData.Products);
-    const pizzas = Products.filter((element)=>element.catigory==="Pizza");
+    
+    // 1. صلحنا الفلترة
+    const shawermaItems = Products.filter((element)=>element.catigory==="Shawerma"); 
+    
     const isAdmin = useSelector((state)=>state.AuthReducer.isAdmin);
     
     const [isModalOpen, setIsModalOpen] = useState(false);
 
-    
     const [formData, setFormData] = useState({
         title: "",
         image: "",
         price: "",
         description: "",
-        catigory:"Pizza"
-
+        catigory:"Shawerma" 
     });
 
     const handleChange = (e) => {
@@ -35,38 +36,42 @@ const PizzaSection = () => {
     const handleSubmit = (e) => {
         e.preventDefault(); 
 
-       
-        const newPizza = {
+        const newShawerma = {
             id: Date.now(), 
             title: formData.title,
             image: formData.image,
             price: Number(formData.price), 
             description: formData.description,
-            catigory:"Pizza",
+            catigory: "Shawerma",
             ingredients: [
                 { name: formData.catigory , icon: GiFullPizza },
-                  { name: "Meat", icon: TbMeat },
-                  { name: "Salad", icon: LuSalad }
-                ] 
+                { name: "Meat", icon: TbMeat },
+                { name: "Salad", icon: LuSalad }
+            ] 
         };
 
-        
-        dispatch(addProduct(newPizza));
+        dispatch(addProduct(newShawerma));
 
-       
-        setFormData({ title: "", image: "", price: "", description: "" });
+        
+        setFormData({ title: "",
+             image: "",
+              price: "",
+               description: "",
+                catigory: "Shawerma" });
         setIsModalOpen(false);
     };
 
     return (
-        <section id="pizza-section" className={styles["container"]}>
+        <section id="shawerma-section" className={styles["container"]}>
 
             <div className={styles["title"]}>
-                <h2>Pizza Section</h2>
+                <h2>Shawerma Section</h2>
             </div>
 
             <div className={styles["cards"]}>
-                {pizzas.map((pizza) => <Card key={pizza.id} item={pizza} />)}
+                
+                {shawermaItems.map((item) => <Card key={item.id} item={item} />)}
+                
                 {isAdmin &&(
                      <button 
                          className={styles["addBtn"]} 
@@ -136,4 +141,4 @@ const PizzaSection = () => {
     );
 }
 
-export default PizzaSection;
+export default ShawermaSection;
