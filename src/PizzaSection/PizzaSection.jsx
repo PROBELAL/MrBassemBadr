@@ -44,7 +44,7 @@ const PizzaSection = () => {
             description: formData.description,
             catigory:"pizza",
             ingredients: [
-                { name: "Pizza", icon: GiFullPizza },
+                { name: formData.catigory , icon: GiFullPizza },
                   { name: "Meat", icon: TbMeat },
                   { name: "Salad", icon: LuSalad }
                 ] 
