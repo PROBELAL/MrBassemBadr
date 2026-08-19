@@ -2,11 +2,15 @@ import styles from "./PizzaSection.module.css"
 import { useSelector, useDispatch } from "react-redux"
 import { useState } from "react"
 import Card from "../Card/Card"
-import { addProduct } from "../Store/pizzaSlice" 
+import { addProduct } from "../Store/ProductSlice" 
+import { GiFullPizza } from "react-icons/gi";
+import { TbMeat } from "react-icons/tb";
+import { LuSalad } from "react-icons/lu";
 
 const PizzaSection = () => {
     const dispatch = useDispatch();
-    const items = useSelector((state) => state.pizzaReducer.PizzaItems);
+    const Products = useSelector((state) => state.ProductData.Products);
+    const pizzas = Products.filter((element)=>element.catigory==="pizza");
     const isAdmin = useSelector((state)=>state.AuthReducer.isAdmin);
     
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -16,7 +20,9 @@ const PizzaSection = () => {
         title: "",
         image: "",
         price: "",
-        description: ""
+        description: "",
+        catigory:"pizza"
+
     });
 
     const handleChange = (e) => {
@@ -36,8 +42,12 @@ const PizzaSection = () => {
             image: formData.image,
             price: Number(formData.price), 
             description: formData.description,
-            
-            ingredients: [] 
+            catigory:"pizza",
+            ingredients: [
+                { name: "Pizza", icon: GiFullPizza },
+                  { name: "Meat", icon: TbMeat },
+                  { name: "Salad", icon: LuSalad }
+                ] 
         };
 
         
@@ -56,7 +66,7 @@ const PizzaSection = () => {
             </div>
 
             <div className={styles["cards"]}>
-                {items.map((pizza) => <Card key={pizza.id} item={pizza} />)}
+                {pizzas.map((pizza) => <Card key={pizza.id} item={pizza} />)}
                 {isAdmin &&(
                      <button 
                          className={styles["addBtn"]} 

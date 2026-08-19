@@ -6,10 +6,16 @@ const Cart = () => {
     const cartItems = useSelector((state) => state.cartReducer.items);
     const total_cost = cartItems.reduce((total, item) => total + item.price, 0);
     const handleConfirmation=()=>{
-        const phoneNumber = "201094752357";
-        const message =`طلبك فى الطريق اليك بسعر ${total_cost}شامل التوصيل خلاص 45 دقيقه `;
-        const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-        window.open(url, '_blank'); 
+        if(total_cost>0){
+            const phoneNumber = "201094752357";
+            const message =`طلبك فى الطريق اليك بسعر ${total_cost}شامل التوصيل خلاص 45 دقيقه `;
+            const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            window.open(url, '_blank'); 
+        }
+        else{
+            alert("You need to buy a meal");
+        }
+        
     }
 
     return(

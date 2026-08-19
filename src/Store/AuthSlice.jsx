@@ -13,7 +13,7 @@ const authSlice = createSlice({
             state.isLoggedIn = !state.isLoggedIn; alert("you switched your role");
         },
         toggleIsAdmin: (state) => {
-            state.isAdmin = !state.isAdmin; alert("you switched your role,you are");
+            state.isAdmin = !state.isAdmin; alert("you switched your role");
         }
     }
 });
