@@ -37,6 +37,7 @@
   height: 60px; 
   width: auto; 
   border-radius: 25px;
+  mix-blend-mode: multiply;
 }
 .cart-icon{
   color: red;
