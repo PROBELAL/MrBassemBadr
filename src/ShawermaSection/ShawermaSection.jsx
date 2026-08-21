@@ -3,16 +3,20 @@ import { useSelector, useDispatch } from "react-redux"
 import { useState } from "react"
 import Card from "../Card/Card"
 import { addProduct } from "../Store/ProductSlice" 
-import { GiFullPizza } from "react-icons/gi"; 
+import { GiSandwich } from "react-icons/gi";
 import { TbMeat } from "react-icons/tb";
-import { LuSalad } from "react-icons/lu";
+
+import { CiFries } from "react-icons/ci";
 
 const ShawermaSection = () => {
+    
     const dispatch = useDispatch();
     const Products = useSelector((state) => state.ProductData.Products);
+    const searchTerm = useSelector((state) => state.ProductData.searchTerm);
     
-    // 1. صلحنا الفلترة
-    const shawermaItems = Products.filter((element)=>element.catigory==="Shawerma"); 
+    
+    const shawermaItems = Products.filter((element)=>element.catigory==="Shawerma"&& 
+            element.title.toLowerCase().includes(searchTerm.toLowerCase())); 
     
     const isAdmin = useSelector((state)=>state.AuthReducer.isAdmin);
     
@@ -44,9 +48,9 @@ const ShawermaSection = () => {
             description: formData.description,
             catigory: "Shawerma",
             ingredients: [
-                { name: formData.catigory , icon: GiFullPizza },
+                { name: formData.catigory , icon: GiSandwich },
                 { name: "Meat", icon: TbMeat },
-                { name: "Salad", icon: LuSalad }
+                { name: "Fries", icon: CiFries }
             ] 
         };
 
@@ -70,7 +74,7 @@ const ShawermaSection = () => {
 
             <div className={styles["cards"]}>
                 
-                {shawermaItems.map((item) => <Card key={item.id} item={item} />)}
+                {shawermaItems.length > 0 ? shawermaItems.map((item) => <Card key={item.id} item={item} />):"Nothing matches your search 🥲"}
                 
                 {isAdmin &&(
                      <button 

@@ -8,10 +8,13 @@ import { TbMeat } from "react-icons/tb";
 import { LuSalad } from "react-icons/lu";
 
 const PizzaSection = () => {
+    const searchTerm = useSelector((state) => state.ProductData.searchTerm);
     const dispatch = useDispatch();
     const Products = useSelector((state) => state.ProductData.Products);
-    const pizzas = Products.filter((element)=>element.catigory==="Pizza");
+    const pizzas = Products.filter((element)=>element.catigory==="Pizza"&& 
+            element.title.toLowerCase().includes(searchTerm.toLowerCase()));
     const isAdmin = useSelector((state)=>state.AuthReducer.isAdmin);
+    
     
     const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -54,7 +57,7 @@ const PizzaSection = () => {
         dispatch(addProduct(newPizza));
 
        
-        setFormData({ title: "", image: "", price: "", description: "" });
+        setFormData({ title: "", image: "", price: "", description: "" ,catigory:"Pizza"});
         setIsModalOpen(false);
     };
 
@@ -66,7 +69,7 @@ const PizzaSection = () => {
             </div>
 
             <div className={styles["cards"]}>
-                {pizzas.map((pizza) => <Card key={pizza.id} item={pizza} />)}
+                { pizzas.length > 0 ? pizzas.map((pizza) => <Card key={pizza.id} item={pizza} />):"Nothing matches your search 🥲"}
                 {isAdmin &&(
                      <button 
                          className={styles["addBtn"]} 

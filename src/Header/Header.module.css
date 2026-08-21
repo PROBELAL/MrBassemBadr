@@ -1,11 +1,8 @@
-
 .headerContainer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  
   background-color: #FFFFFF;
-  
   padding: 1.5%;
   position: sticky; 
   top: 0; 
@@ -13,13 +10,33 @@
   max-height: 75px;
 }
 
-.nav-links {
-  list-style: none;
+
+.logoContainer {
+  flex: 1;
   display: flex;
+  justify-content: flex-start;
+}
+
+.logo {
+  height: 60px; 
+  width: auto; 
+  border-radius: 25px;
+  mix-blend-mode: multiply;
+}
+
+
+.nav-links {
+  flex: 1; 
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  list-style: none;
   font-size: 20px;
   gap: 50px;
-  
+  margin: 0;
+  padding: 0;
 }
+
 .nav-links li a{
   text-decoration: none;
   color: #1D3557;
@@ -33,15 +50,13 @@
   color: #F4A261; 
 }
 
-.logo {
-  height: 60px; 
-  width: auto; 
-  border-radius: 25px;
-  mix-blend-mode: multiply;
-}
-.cart-icon{
-  color: red;
-  font-size: 2rem;
+
+.headerFuncs{
+  flex: 1; 
+  display: flex;
+  justify-content: flex-end; 
+  align-items: center;
+  gap: 20px;
 }
 
 .cartIconContainer {
@@ -52,6 +67,12 @@
     cursor: pointer;
     text-decoration: none;
 }
+
+.cart-icon{
+  color: red;
+  font-size: 2rem;
+}
+
 .badge {
     position: absolute;
     top: -8px;
@@ -69,17 +90,6 @@
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
-
-
-
-
-
-
-
-.headerFuncs{
-  display: flex;
-  gap: 20px;
-}
 .headerFuncs button{
     padding: 1rem;
     background-color: #E63946;
@@ -89,7 +99,6 @@
     color: white;
     box-shadow: 0 4px 0 #B32332, 0 8px 15px rgba(0, 0, 0, 0.1);
     transition: all 0.15s ease;
-    
 }
 
 .headerFuncs button:hover {
@@ -97,7 +106,6 @@
     box-shadow: 0 6px 0 #B32332, 0 12px 20px rgba(0, 0, 0, 0.15); 
     background-color: #f04351; 
 }
-
 
 .headerFuncs button:active {
     transform: translateY(4px); 

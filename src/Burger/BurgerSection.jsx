@@ -6,13 +6,17 @@ import { addProduct } from "../Store/ProductSlice"
 import { GiFullPizza } from "react-icons/gi"; 
 import { TbMeat } from "react-icons/tb";
 import { LuSalad } from "react-icons/lu";
+import { CiFries } from "react-icons/ci";
+import { GiHamburger } from "react-icons/gi";
 
 const BurgerSection = () => {
     const dispatch = useDispatch();
     const Products = useSelector((state) => state.ProductData.Products);
+    const searchTerm = useSelector((state) => state.ProductData.searchTerm);
     
    
-    const burgerItems = Products.filter((element)=>element.catigory==="Burger");
+    const burgerItems = Products.filter((element)=>element.catigory==="Burger"&& 
+            element.title.toLowerCase().includes(searchTerm.toLowerCase()));
     
     const isAdmin = useSelector((state)=>state.AuthReducer.isAdmin);
     
@@ -45,9 +49,9 @@ const BurgerSection = () => {
             description: formData.description,
             catigory: "Burger", 
             ingredients: [
-                { name: formData.catigory , icon: GiFullPizza },
+                { name: formData.catigory , icon: GiHamburger },
                 { name: "Meat", icon: TbMeat },
-                { name: "Salad", icon: LuSalad }
+                { name: "Fries", icon: CiFries}
             ] 
         };
 
@@ -67,7 +71,7 @@ const BurgerSection = () => {
 
             <div className={styles["cards"]}>
                 
-                {burgerItems.map((item) => <Card key={item.id} item={item} />)}
+                { burgerItems.length > 0? burgerItems.map((item) => <Card key={item.id} item={item} />):"Nothing matches your search 🥲"}
                 
                 {isAdmin &&(
                      <button 
