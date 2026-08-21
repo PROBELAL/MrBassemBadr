@@ -1,42 +1,79 @@
 .container {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between; 
-    align-items: flex-start; 
-    padding: 40px 5%; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    padding: clamp(20px, 3vw, 40px) 5%; 
     gap: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    min-height: 80vh;
+}
+
+
+@media (min-width: 900px) {
+    .container {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+    }
 }
 
 .Purchese, .purchese-info {
     background-color: #FFFFFF; 
     border-radius: 20px; 
- 
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05); 
-   
     border: 1px solid #F1F1F1; 
-    padding: 30px; 
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
+    padding: clamp(20px, 2.5vw, 30px); 
+    box-sizing: border-box;
 }
 
 .Purchese {
-    width: 65%; 
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+@media (min-width: 900px) {
+    .Purchese {
+        width: 65%; 
+    }
 }
 
 .purchese-info {
     display: flex;
     flex-direction: column;
-    gap: 30px;
-    width: 30%;
+    gap: 20px;
+    width: 100%;
 }
 
-.purchases-container button{
-    padding: 6%;
+@media (min-width: 900px) {
+    .purchese-info {
+        width: 30%;
+    }
+}
+
+.purchese-info h2 {
+    font-size: clamp(1.2rem, 1.8vw, 1.5rem);
+    color: #1D3557;
+    margin: 0;
+}
+
+.purchases-container {
+    width: 100%;
+}
+
+.purchases-container button {
+    width: 100%;
+    padding: 15px;
     background-color: #E63946;
     border: none;
-    border-radius:20px ;
+    border-radius: 20px;
     cursor: pointer;
     color: white;
+    font-size: 1rem;
+    font-weight: bold;
     box-shadow: 0 4px 0 #B32332, 0 8px 15px rgba(0, 0, 0, 0.1);
     transition: all 0.15s ease;
 }
@@ -47,8 +84,16 @@
     background-color: #f04351; 
 }
 
-
 .purchases-container button:active {
     transform: translateY(4px); 
     box-shadow: 0 0 0 #B32332, 0 2px 5px rgba(0, 0, 0, 0.1); 
+}
+
+
+.emptyCart {
+    text-align: center;
+    color: #8d99ae;
+    font-size: 1.2rem;
+    padding: 30px;
+    width: 100%;
 }

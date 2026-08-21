@@ -10,10 +10,10 @@ const authSlice = createSlice({
     initialState,
     reducers: {
         toggleIsLoggedIn: (state) => {
-            state.isLoggedIn = !state.isLoggedIn; alert("you switched your role");
+            state.isLoggedIn = !state.isLoggedIn; alert("You switched your role");
         },
         toggleIsAdmin: (state) => {
-            state.isAdmin = !state.isAdmin; alert("you switched your role");
+            state.isAdmin = !state.isAdmin; alert("You switched your role");
         }
     }
 });

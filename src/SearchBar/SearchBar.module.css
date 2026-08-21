@@ -2,16 +2,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
-    margin: 40px auto 40px auto;
+    padding: 0;
+    margin: 0;
     width: 100%;
-    max-width: 600px;
+    width: clamp(90px, 15vw, 220px); 
+    min-width: 90px;
+    flex-shrink: 1; 
 }
 
 .searchInput {
     width: 100%;
-    padding: 16px 25px;
-    font-size: 17px;
+    padding: clamp(5px, 0.8vw, 8px) clamp(8px, 1.2vw, 12px);
+    font-size: clamp(20px, 1.1vw, 14px);
     font-weight: 500;
     color: #1D3557; 
     background-color: white;
