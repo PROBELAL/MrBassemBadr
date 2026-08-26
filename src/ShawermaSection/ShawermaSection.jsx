@@ -5,7 +5,6 @@ import Card from "../Card/Card"
 import { addProduct } from "../Store/ProductSlice" 
 import { GiSandwich } from "react-icons/gi";
 import { TbMeat } from "react-icons/tb";
-
 import { CiFries } from "react-icons/ci";
 
 const ShawermaSection = () => {
@@ -14,8 +13,7 @@ const ShawermaSection = () => {
     const Products = useSelector((state) => state.ProductData.Products);
     const searchTerm = useSelector((state) => state.ProductData.searchTerm);
     
-    
-    const shawermaItems = Products.filter((element)=>element.catigory==="Shawerma"&& 
+    const shawermaItems = Products.filter((element)=>element.category==="Shawerma"&& 
             element.title.toLowerCase().includes(searchTerm.toLowerCase())); 
     
     const isAdmin = useSelector((state)=>state.AuthReducer.isAdmin);
@@ -27,7 +25,7 @@ const ShawermaSection = () => {
         image: "",
         price: "",
         description: "",
-        catigory:"Shawerma" 
+        category:"Shawerma" 
     });
 
     const handleChange = (e) => {
@@ -46,22 +44,23 @@ const ShawermaSection = () => {
             image: formData.image,
             price: Number(formData.price), 
             description: formData.description,
-            catigory: "Shawerma",
+            category: "Shawerma",
             ingredients: [
-                { name: formData.catigory , icon: GiSandwich },
+                { name: formData.category , icon: GiSandwich },
                 { name: "Meat", icon: TbMeat },
                 { name: "Fries", icon: CiFries }
             ] 
         };
 
         dispatch(addProduct(newShawerma));
-
         
-        setFormData({ title: "",
-             image: "",
-              price: "",
-               description: "",
-                catigory: "Shawerma" });
+        setFormData({ 
+            title: "",
+            image: "",
+            price: "",
+            description: "",
+            category: "Shawerma" 
+        });
         setIsModalOpen(false);
     };
 

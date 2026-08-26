@@ -11,21 +11,18 @@ const PizzaSection = () => {
     const searchTerm = useSelector((state) => state.ProductData.searchTerm);
     const dispatch = useDispatch();
     const Products = useSelector((state) => state.ProductData.Products);
-    const pizzas = Products.filter((element)=>element.catigory==="Pizza"&& 
+    const pizzas = Products.filter((element)=>element.category==="Pizza"&& 
             element.title.toLowerCase().includes(searchTerm.toLowerCase()));
     const isAdmin = useSelector((state)=>state.AuthReducer.isAdmin);
     
-    
     const [isModalOpen, setIsModalOpen] = useState(false);
-
     
     const [formData, setFormData] = useState({
         title: "",
         image: "",
         price: "",
         description: "",
-        catigory:"Pizza"
-
+        category:"Pizza"
     });
 
     const handleChange = (e) => {
@@ -38,26 +35,23 @@ const PizzaSection = () => {
     const handleSubmit = (e) => {
         e.preventDefault(); 
 
-       
         const newPizza = {
             id: Date.now(), 
             title: formData.title,
             image: formData.image,
             price: Number(formData.price), 
             description: formData.description,
-            catigory:"Pizza",
+            category:"Pizza",
             ingredients: [
-                { name: formData.catigory , icon: GiFullPizza },
-                  { name: "Meat", icon: TbMeat },
-                  { name: "Salad", icon: LuSalad }
-                ] 
+                { name: formData.category , icon: GiFullPizza },
+                { name: "Meat", icon: TbMeat },
+                { name: "Salad", icon: LuSalad }
+            ] 
         };
 
-        
         dispatch(addProduct(newPizza));
 
-       
-        setFormData({ title: "", image: "", price: "", description: "" ,catigory:"Pizza"});
+        setFormData({ title: "", image: "", price: "", description: "" ,category:"Pizza"});
         setIsModalOpen(false);
     };
 

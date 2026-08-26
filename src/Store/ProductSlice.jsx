@@ -19,7 +19,7 @@ const initialState={
           { name: "Meat", icon: TbMeat },
           { name: "Salad", icon: LuSalad }
       ],
-      catigory:"Pizza"
+      category:"Pizza"
     },
     {
       id: 2,
@@ -32,7 +32,7 @@ const initialState={
           { name: "Meat", icon: TbMeat },
           { name: "Salad", icon: LuSalad }
       ],
-      catigory:"Pizza"
+      category:"Pizza"
       
     },
     {
@@ -46,7 +46,7 @@ const initialState={
           { name: "Meat", icon: TbMeat },
           { name: "Salad", icon: LuSalad }
       ],
-      catigory:"Pizza"
+      category:"Pizza"
     },{
       id: 4,
       title: "Hawaiian Pizza",
@@ -58,7 +58,7 @@ const initialState={
           { name: "Meat", icon: TbMeat },
           { name: "Salad", icon: LuSalad }
       ],
-      catigory:"Pizza"
+      category:"Pizza"
     },{
       id: 5,
       title: "Meat Lovers Pizza",
@@ -70,7 +70,7 @@ const initialState={
           { name: "Meat", icon: TbMeat },
           { name: "Salad", icon: LuSalad }
       ],
-      catigory:"Pizza"
+      category:"Pizza"
     },{
       id: 6,
       title: "Veggie Supreme Pizza",
@@ -82,7 +82,7 @@ const initialState={
           { name: "Meat", icon: TbMeat },
           { name: "Salad", icon: LuSalad }
       ],
-      catigory:"Pizza"
+      category:"Pizza"
     },{
       id: 7,
       title: "Four Cheese Pizza",
@@ -94,7 +94,7 @@ const initialState={
           { name: "Meat", icon: TbMeat },
           { name: "Salad", icon: LuSalad }
       ],
-      catigory:"Pizza"
+      category:"Pizza"
     },{
       id: 8,
       title: "Buffalo Chicken Pizza",
@@ -106,7 +106,7 @@ const initialState={
           { name: "Meat", icon: TbMeat },
           { name: "Salad", icon: LuSalad }
       ],
-      catigory:"Pizza"
+      category:"Pizza"
     },
 
     {
@@ -120,7 +120,7 @@ const initialState={
           { name: "Meat", icon: TbMeat },
           { name: "Fries", icon: CiFries }
       ],
-      catigory:"Burger"
+      category:"Burger"
     },
     {
       id: 10,
@@ -133,7 +133,7 @@ const initialState={
           { name: "Meat", icon: TbMeat },
           { name: "Fries", icon: CiFries }
       ],
-      catigory:"Burger"
+      category:"Burger"
     },
     {
       id: 11,
@@ -146,7 +146,7 @@ const initialState={
           { name: "Meat", icon: TbMeat },
           { name: "Fries", icon: CiFries }
       ],
-      catigory:"Burger"
+      category:"Burger"
     },
     {
       id: 12,
@@ -159,7 +159,7 @@ const initialState={
           { name: "Meat", icon: TbMeat },
           { name: "Fries", icon: CiFries }
       ],
-      catigory:"Burger"
+      category:"Burger"
     },
     {
       id: 13,
@@ -172,7 +172,7 @@ const initialState={
           { name: "Meat", icon: TbMeat },
           { name: "Fries", icon: CiFries }
       ],
-      catigory:"Burger"
+      category:"Burger"
     },
     {
       id: 14,
@@ -185,7 +185,7 @@ const initialState={
           { name: "Meat", icon: TbMeat },
           { name: "Fries", icon: CiFries }
       ],
-      catigory:"Burger"
+      category:"Burger"
     },
     {
       id: 15,
@@ -198,7 +198,7 @@ const initialState={
           { name: "Meat", icon: TbMeat },
           { name: "Fries", icon: CiFries }
       ],
-      catigory:"Burger"
+      category:"Burger"
     },
     {
       id: 16,
@@ -211,7 +211,7 @@ const initialState={
           { name: "Meat", icon: TbMeat },
           { name: "Fries", icon: CiFries }
       ],
-      catigory:"Burger"
+      category:"Burger"
     },
 
     {
@@ -225,7 +225,7 @@ const initialState={
           { name: "Meat", icon: TbMeat },
           { name: "Fries", icon: CiFries }
       ],
-      catigory:"Shawerma"
+      category:"Shawerma"
     },
     {
       id: 18,
@@ -238,7 +238,7 @@ const initialState={
           { name: "Meat", icon: TbMeat },
           { name: "Fries", icon: CiFries }
       ],
-      catigory:"Shawerma"
+      category:"Shawerma"
     },
     {
       id: 19,
@@ -251,7 +251,7 @@ const initialState={
           { name: "Meat", icon: TbMeat },
           { name: "Fries", icon: CiFries }
       ],
-      catigory:"Shawerma"
+      category:"Shawerma"
     },
     {
       id: 20,
@@ -264,7 +264,7 @@ const initialState={
           { name: "Meat", icon: TbMeat },
           { name: "Fries", icon: CiFries }
       ],
-      catigory:"Shawerma"
+      category:"Shawerma"
     },
     {
       id: 21,
@@ -277,7 +277,7 @@ const initialState={
           { name: "Meat", icon: TbMeat },
           { name: "Fries", icon: CiFries }
       ],
-      catigory:"Shawerma"
+      category:"Shawerma"
     },
     {
       id: 22,
@@ -290,7 +290,7 @@ const initialState={
           { name: "Meat", icon: TbMeat },
           { name: "Fries", icon: CiFries }
       ],
-      catigory:"Shawerma"
+      category:"Shawerma"
     },
     {
       id: 23,
@@ -303,7 +303,7 @@ const initialState={
           { name: "Meat", icon: TbMeat },
           { name: "Fries", icon: CiFries }
       ],
-      catigory:"Shawerma"
+      category:"Shawerma"
     },
     {
       id: 24,
@@ -316,7 +316,7 @@ const initialState={
           { name: "Meat", icon: TbMeat },
           { name: "Fries", icon: CiFries }
       ],
-      catigory:"Shawerma"
+      category:"Shawerma"
     }
     ],
 searchTerm:""

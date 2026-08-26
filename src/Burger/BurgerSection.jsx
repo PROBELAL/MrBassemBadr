@@ -14,8 +14,7 @@ const BurgerSection = () => {
     const Products = useSelector((state) => state.ProductData.Products);
     const searchTerm = useSelector((state) => state.ProductData.searchTerm);
     
-   
-    const burgerItems = Products.filter((element)=>element.catigory==="Burger"&& 
+    const burgerItems = Products.filter((element)=>element.category==="Burger"&& 
             element.title.toLowerCase().includes(searchTerm.toLowerCase()));
     
     const isAdmin = useSelector((state)=>state.AuthReducer.isAdmin);
@@ -27,7 +26,7 @@ const BurgerSection = () => {
         image: "",
         price: "",
         description: "",
-        catigory: "Burger" 
+        category: "Burger" 
     });
 
     const handleChange = (e) => {
@@ -40,25 +39,23 @@ const BurgerSection = () => {
     const handleSubmit = (e) => {
         e.preventDefault(); 
 
-        
         const newBurger = {
             id: Date.now(), 
             title: formData.title,
             image: formData.image,
             price: Number(formData.price), 
             description: formData.description,
-            catigory: "Burger", 
+            category: "Burger", 
             ingredients: [
-                { name: formData.catigory , icon: GiHamburger },
+                { name: formData.category , icon: GiHamburger },
                 { name: "Meat", icon: TbMeat },
                 { name: "Fries", icon: CiFries}
             ] 
         };
 
         dispatch(addProduct(newBurger));
-
         
-        setFormData({ title: "", image: "", price: "", description: "", catigory: "Burger" });
+        setFormData({ title: "", image: "", price: "", description: "", category: "Burger" });
         setIsModalOpen(false);
     };
 
