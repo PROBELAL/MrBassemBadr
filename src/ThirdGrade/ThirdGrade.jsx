@@ -1,21 +1,20 @@
-import styles from "./BurgerSection.module.css"
+import styles from "./ThirdGrade.module.css"
 import { useSelector, useDispatch } from "react-redux"
 import { useState } from "react"
 import Card from "../Card/Card"
 import { addProduct } from "../Store/ProductSlice" 
-import { GiFullPizza } from "react-icons/gi"; 
+import { GiSandwich } from "react-icons/gi";
 import { TbMeat } from "react-icons/tb";
-import { LuSalad } from "react-icons/lu";
 import { CiFries } from "react-icons/ci";
-import { GiHamburger } from "react-icons/gi";
 
-const BurgerSection = () => {
+const ShawermaSection = () => {
+    
     const dispatch = useDispatch();
     const Products = useSelector((state) => state.ProductData.Products);
     const searchTerm = useSelector((state) => state.ProductData.searchTerm);
     
-    const burgerItems = Products.filter((element)=>element.category==="تانيه ثانوى"&& 
-            element.title.toLowerCase().includes(searchTerm.toLowerCase()));
+    const shawermaItems = Products.filter((element)=>element.category==="تالته ثانوى"&& 
+            element.title.toLowerCase().includes(searchTerm.toLowerCase())); 
     
     const isAdmin = useSelector((state)=>state.AuthReducer.isAdmin);
     
@@ -26,7 +25,7 @@ const BurgerSection = () => {
         image: "",
         price: "",
         description: "",
-        category: "Burger" 
+        category:"Shawerma" 
     });
 
     const handleChange = (e) => {
@@ -39,36 +38,42 @@ const BurgerSection = () => {
     const handleSubmit = (e) => {
         e.preventDefault(); 
 
-        const newBurger = {
+        const newShawerma = {
             id: Date.now(), 
             title: formData.title,
             image: formData.image,
             price: Number(formData.price), 
             description: formData.description,
-            category: "Burger", 
+            category: "Shawerma",
             ingredients: [
-                { name: formData.category , icon: GiHamburger },
+                { name: formData.category , icon: GiSandwich },
                 { name: "Meat", icon: TbMeat },
-                { name: "Fries", icon: CiFries}
+                { name: "Fries", icon: CiFries }
             ] 
         };
 
-        dispatch(addProduct(newBurger));
+        dispatch(addProduct(newShawerma));
         
-        setFormData({ title: "", image: "", price: "", description: "", category: "Burger" });
+        setFormData({ 
+            title: "",
+            image: "",
+            price: "",
+            description: "",
+            category: "Shawerma" 
+        });
         setIsModalOpen(false);
     };
 
     return (
-        <section id="burger-section" className={styles["container"]}>
+        <section id="shawerma-section" className={styles["container"]}>
 
             <div className={styles["title"]}>
-                <h2>تانيه ثانوى</h2>
+                <h2>تالته ثانوى</h2>
             </div>
 
             <div className={styles["cards"]}>
                 
-                { burgerItems.length > 0? burgerItems.map((item) => <Card key={item.id} item={item} />):"Nothing matches your search 🥲"}
+                {shawermaItems.length > 0 ? shawermaItems.map((item) => <Card key={item.id} item={item} />):"Nothing matches your search 🥲"}
                 
                 {isAdmin &&(
                      <button 
@@ -139,4 +144,4 @@ const BurgerSection = () => {
     );
 }
 
-export default BurgerSection;
+export default ShawermaSection;

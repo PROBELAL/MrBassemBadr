@@ -1,4 +1,4 @@
-import styles from "./PizzaSection.module.css"
+import styles from "./FirstGrade.module.css"
 import { useSelector, useDispatch } from "react-redux"
 import { useState } from "react"
 import Card from "../Card/Card"

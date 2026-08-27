@@ -1,20 +1,21 @@
-import styles from "./ShawermaSection.module.css"
+import styles from "./SecondGrade.module.css"
 import { useSelector, useDispatch } from "react-redux"
 import { useState } from "react"
 import Card from "../Card/Card"
 import { addProduct } from "../Store/ProductSlice" 
-import { GiSandwich } from "react-icons/gi";
+import { GiFullPizza } from "react-icons/gi"; 
 import { TbMeat } from "react-icons/tb";
+import { LuSalad } from "react-icons/lu";
 import { CiFries } from "react-icons/ci";
+import { GiHamburger } from "react-icons/gi";
 
-const ShawermaSection = () => {
-    
+const BurgerSection = () => {
     const dispatch = useDispatch();
     const Products = useSelector((state) => state.ProductData.Products);
     const searchTerm = useSelector((state) => state.ProductData.searchTerm);
     
-    const shawermaItems = Products.filter((element)=>element.category==="تالته ثانوى"&& 
-            element.title.toLowerCase().includes(searchTerm.toLowerCase())); 
+    const burgerItems = Products.filter((element)=>element.category==="تانيه ثانوى"&& 
+            element.title.toLowerCase().includes(searchTerm.toLowerCase()));
     
     const isAdmin = useSelector((state)=>state.AuthReducer.isAdmin);
     
@@ -25,7 +26,7 @@ const ShawermaSection = () => {
         image: "",
         price: "",
         description: "",
-        category:"Shawerma" 
+        category: "Burger" 
     });
 
     const handleChange = (e) => {
@@ -38,42 +39,36 @@ const ShawermaSection = () => {
     const handleSubmit = (e) => {
         e.preventDefault(); 
 
-        const newShawerma = {
+        const newBurger = {
             id: Date.now(), 
             title: formData.title,
             image: formData.image,
             price: Number(formData.price), 
             description: formData.description,
-            category: "Shawerma",
+            category: "Burger", 
             ingredients: [
-                { name: formData.category , icon: GiSandwich },
+                { name: formData.category , icon: GiHamburger },
                 { name: "Meat", icon: TbMeat },
-                { name: "Fries", icon: CiFries }
+                { name: "Fries", icon: CiFries}
             ] 
         };
 
-        dispatch(addProduct(newShawerma));
+        dispatch(addProduct(newBurger));
         
-        setFormData({ 
-            title: "",
-            image: "",
-            price: "",
-            description: "",
-            category: "Shawerma" 
-        });
+        setFormData({ title: "", image: "", price: "", description: "", category: "Burger" });
         setIsModalOpen(false);
     };
 
     return (
-        <section id="shawerma-section" className={styles["container"]}>
+        <section id="burger-section" className={styles["container"]}>
 
             <div className={styles["title"]}>
-                <h2>تالته ثانوى</h2>
+                <h2>تانيه ثانوى</h2>
             </div>
 
             <div className={styles["cards"]}>
                 
-                {shawermaItems.length > 0 ? shawermaItems.map((item) => <Card key={item.id} item={item} />):"Nothing matches your search 🥲"}
+                { burgerItems.length > 0? burgerItems.map((item) => <Card key={item.id} item={item} />):"Nothing matches your search 🥲"}
                 
                 {isAdmin &&(
                      <button 
@@ -144,4 +139,4 @@ const ShawermaSection = () => {
     );
 }
 
-export default ShawermaSection;
+export default BurgerSection;

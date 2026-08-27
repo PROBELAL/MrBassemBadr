@@ -3,11 +3,11 @@ import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
 
 import Header from "./Header/Header";
 import Slider from "./Slider/Slider";
-import PizzaSection from "./PizzaSection/PizzaSection";
+import FirstGrade from "./FirstGrade/FirstGrade";
 import Cart from "./Cart/Cart"; 
 import CartItem from "./CartItem/CartItem"
-import BurgerSection from "./Burger/BurgerSection"
-import ShawermaSection from "./ShawermaSection/ShawermaSection"
+import SecondGrade from "./SecondGrade/SecondGrade"
+import ThirdGrade from "./ThirdGrade/ThirdGrade"
 import HomeSection from "./HomeSection/HomeSection"
 
 const App = () => {
@@ -23,9 +23,9 @@ const App = () => {
         <>
           <HomeSection/>
           <Slider/>
-          <PizzaSection />
-          <BurgerSection />
-          <ShawermaSection />
+          <FirstGrade />
+          <SecondGrade />
+          <ThirdGrade />
         </>
       } 
     />
