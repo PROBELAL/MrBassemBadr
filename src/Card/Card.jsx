@@ -40,7 +40,7 @@ const Card=({item})=>{
                 </p>
                 <div className={styles["purchases-container"]}>
                     <h2>{item.price}$</h2>
-                    <button onClick={addToCart}><FaShoppingCart/> Add to cart</button>
+                    <button onClick={addToCart}> اضف الى السله <FaShoppingCart/></button>
                 </div>
             </div>
         </div>
