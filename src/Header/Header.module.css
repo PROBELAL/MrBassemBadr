@@ -14,16 +14,19 @@
   flex: 1;
   display: flex;
   justify-content: flex-start;
+  
 }
 .logoContainer a {
   text-decoration: none;
+  
 }
 .logoContainer h2{
-  color: #F7F0F5;
+  color: #E5C158;
   text-decoration: none;
 }
 
 .logo {
+  
   height: clamp(40px, 6vw, 60px); 
   width: auto; 
   border-radius: 25px;
