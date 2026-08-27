@@ -11,7 +11,7 @@ const PizzaSection = () => {
     const searchTerm = useSelector((state) => state.ProductData.searchTerm);
     const dispatch = useDispatch();
     const Products = useSelector((state) => state.ProductData.Products);
-    const pizzas = Products.filter((element)=>element.category==="Pizza"&& 
+    const pizzas = Products.filter((element)=>element.category==="اولى ثانوى"&& 
             element.title.toLowerCase().includes(searchTerm.toLowerCase()));
     const isAdmin = useSelector((state)=>state.AuthReducer.isAdmin);
     
@@ -59,7 +59,7 @@ const PizzaSection = () => {
         <section id="pizza-section" className={styles["container"]}>
 
             <div className={styles["title"]}>
-                <h2>Pizza Section</h2>
+                <h2>اولى ثانوى</h2>
             </div>
 
             <div className={styles["cards"]}>

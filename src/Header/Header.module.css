@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #FFFFFF;
+  background-color: #433633;
   padding: clamp(10px, 1.5%, 20px) clamp(15px, 2%, 30px);
   position: sticky; 
   top: 0; 
@@ -15,12 +15,20 @@
   display: flex;
   justify-content: flex-start;
 }
+.logoContainer a {
+  text-decoration: none;
+}
+.logoContainer h2{
+  color: #F7F0F5;
+  text-decoration: none;
+}
 
 .logo {
   height: clamp(40px, 6vw, 60px); 
   width: auto; 
   border-radius: 25px;
   mix-blend-mode: multiply;
+  
 }
 
 .nav-links {
@@ -37,7 +45,7 @@
 
 .nav-links li a{
   text-decoration: none;
-  color: #1D3557;
+  color: #F7F0F5;
 }
 
 .nav-links li a:hover {
@@ -45,7 +53,7 @@
   transition: 0.3s ease-in-out;
   transform: scale(1.3);
   font-weight: bold;
-  color: #F4A261; 
+  color: #DECBB7; 
 }
 
 .headerFuncs {
@@ -60,13 +68,13 @@
     position: relative; 
     display: flex;
     align-items: center;
-    color: #1D3557;
+    color: #F7F0F5;
     cursor: pointer;
     text-decoration: none;
 }
 
 .cart-icon{
-  color: red;
+  color: #DECBB7;
   font-size: 2rem;
 }
 

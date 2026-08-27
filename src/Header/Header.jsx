@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import logoImg from "../assets/logo2.png";
+import logoImg from "../assets/logo3.jpg"
 import styles from "./Header.module.css";
 import { FaShoppingCart } from "react-icons/fa";
 import { useSelector, useDispatch } from "react-redux"
@@ -17,15 +17,15 @@ const Header = () => {
             
             <div className={styles.logoContainer}>
                 <Link to="/">
-                    <img className={styles.logo} src={logoImg} alt="Logo" />
+                    <h2>باسم بدر</h2>
                 </Link>
             </div>
             
            
             <ul className={styles["nav-links"]}>
-                <li><a href="#pizza-section">Pizza</a></li>
-                <li><a href="#burger-section">Burger</a></li>
-                <li><a href="#shawerma-section">Shawerma</a></li>
+                <li><a href="#pizza-section">اولى ثانوى</a></li>
+                <li><a href="#burger-section">تانيه ثانوى</a></li>
+                <li><a href="#shawerma-section">تالته ثانوى</a></li>
             </ul>
             
             
@@ -39,7 +39,8 @@ const Header = () => {
                         </span>
                     )}
                 </Link>
-                <button onClick={() => dispatch(toggleIsAdmin())}>isAdmin</button>
+                {/*<button onClick={() => dispatch(toggleIsAdmin())}>isAdmin</button> */}
+                
             </div>
                 
         </header>

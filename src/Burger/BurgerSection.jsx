@@ -14,7 +14,7 @@ const BurgerSection = () => {
     const Products = useSelector((state) => state.ProductData.Products);
     const searchTerm = useSelector((state) => state.ProductData.searchTerm);
     
-    const burgerItems = Products.filter((element)=>element.category==="Burger"&& 
+    const burgerItems = Products.filter((element)=>element.category==="تانيه ثانوى"&& 
             element.title.toLowerCase().includes(searchTerm.toLowerCase()));
     
     const isAdmin = useSelector((state)=>state.AuthReducer.isAdmin);
@@ -63,7 +63,7 @@ const BurgerSection = () => {
         <section id="burger-section" className={styles["container"]}>
 
             <div className={styles["title"]}>
-                <h2>Burger Section</h2>
+                <h2>تانيه ثانوى</h2>
             </div>
 
             <div className={styles["cards"]}>

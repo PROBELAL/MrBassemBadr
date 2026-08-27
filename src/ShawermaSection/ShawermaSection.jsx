@@ -13,7 +13,7 @@ const ShawermaSection = () => {
     const Products = useSelector((state) => state.ProductData.Products);
     const searchTerm = useSelector((state) => state.ProductData.searchTerm);
     
-    const shawermaItems = Products.filter((element)=>element.category==="Shawerma"&& 
+    const shawermaItems = Products.filter((element)=>element.category==="تالته ثانوى"&& 
             element.title.toLowerCase().includes(searchTerm.toLowerCase())); 
     
     const isAdmin = useSelector((state)=>state.AuthReducer.isAdmin);
@@ -68,7 +68,7 @@ const ShawermaSection = () => {
         <section id="shawerma-section" className={styles["container"]}>
 
             <div className={styles["title"]}>
-                <h2>Shawerma Section</h2>
+                <h2>تالته ثانوى</h2>
             </div>
 
             <div className={styles["cards"]}>

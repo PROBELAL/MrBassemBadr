@@ -17,7 +17,7 @@
     font-weight: 500;
     color: #1D3557; 
     background-color: white;
-    border: 2px solid transparent;
+    border: 2px solid #8F857D;
     border-radius: 30px; 
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); 
     transition: all 0.3s ease-in-out;
@@ -30,7 +30,7 @@
 }
 
 .searchInput:focus {
-    border-color: #E63946; 
+    border-color: #8F857D; 
     box-shadow: 0 8px 20px rgba(230, 57, 70, 0.15); 
     transform: translateY(-2px); 
 }

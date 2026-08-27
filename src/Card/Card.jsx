@@ -14,7 +14,13 @@ const Card=({item})=>{
     }
     return(<>
         <div className={styles["card-container"]}>
-            <img src={item.image} alt={item.title}/>
+            
+                <div 
+                    className={styles["card-image"]} 
+                    style={{ backgroundImage: `url(${item.image})` }} 
+                />
+            
+            
             <div className={styles["card-info"]}>
                 <h2>{item.title}</h2>
                 
@@ -22,7 +28,7 @@ const Card=({item})=>{
                 <div className={styles["content-container"]}>{
                     item.ingredients.map((ingredient,index)=>
                     <div key={index} className={styles["content"]}>
-                        <ingredient.icon/>
+                       {/*<ingredient.icon/>*/}
                         <h5>{ingredient.name}</h5>
                     </div>
                     )}  

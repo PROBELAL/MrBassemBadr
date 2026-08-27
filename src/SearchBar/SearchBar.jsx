@@ -11,7 +11,7 @@ const SearchBar=()=>{
         <section className={styles.searchContainer}>
             <input 
                 type="text" 
-                placeholder="Search for a meal..." 
+                placeholder="ابحث عن كورس ..." 
                 value={searchTerm}
                 onChange={(e)=>handleSearch(e)}
                 className={styles.searchInput}

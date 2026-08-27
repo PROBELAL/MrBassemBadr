@@ -46,14 +46,14 @@
 .price {
     margin: 5px 0 0 0;
     font-weight: bold;
-    color: #E63946;
+    color: #433633;
     font-size: clamp(14px, 1.3vw, 16px);
 }
 
 .removeBtn {
-    background-color: #ffe6e6; 
+    background-color: #DECBB7; 
     border: none;
-    color: #ff4d4d;
+    color: #433633;
     width: clamp(32px, 5vw, 40px);
     height: clamp(32px, 5vw, 40px);
     border-radius: 50%;
@@ -67,7 +67,7 @@
 }
 
 .removeBtn:hover {
-    background-color: #ff4d4d;
-    color: white;
+    background-color: #433633;
+    color: #F7F0F5;
     transform: scale(1.1);
 }

@@ -8,6 +8,7 @@ import Cart from "./Cart/Cart";
 import CartItem from "./CartItem/CartItem"
 import BurgerSection from "./Burger/BurgerSection"
 import ShawermaSection from "./ShawermaSection/ShawermaSection"
+import HomeSection from "./HomeSection/HomeSection"
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
       path="/" 
       element={
         <>
+          <HomeSection/>
           <Slider/>
           <PizzaSection />
           <BurgerSection />

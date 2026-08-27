@@ -7,318 +7,333 @@ import { GiHamburger } from "react-icons/gi";
 import { CiFries } from "react-icons/ci";
 import { GiSandwich } from "react-icons/gi";
 
+
+
+
+import img1 from "../assets/img1.jpeg"
+import img2 from "../assets/img2.jpeg"
+import img3 from "../assets/img3.jpeg"
+import img4 from "../assets/img4.jpeg"
+import img5 from "../assets/img5.jpeg"
+import img6 from "../assets/img6.jpeg"
+import img7 from "../assets/img7.jpeg"
+import img8 from "../assets/img8.jpeg"
+
 const initialState={
-  Products:[{
+  Products : [
+    {
       id: 1,
-      title: "Margherita Pizza",
-      image: PizzaImg,
-      description: "Delicious Pizza with meat, fresh salad, and our secret sauce.",
-      price: 15,
+      title: "كورس النحو التأسيسي",
+      image: img1,
+      description: "شرح تفصيلي لقواعد النحو لطلاب الصف الأول الثانوي مع تدريبات مكثفة على النظام الحديث.",
+      price: 150,
       ingredients: [
-          { name: "Pizza", icon: GiFullPizza },
-          { name: "Meat", icon: TbMeat },
-          { name: "Salad", icon: LuSalad }
+          { name: "شرح" },
+          { name: "تدريبات" },
+          { name: "امتحان" }
       ],
-      category:"Pizza"
+      category: "اولى ثانوى"
     },
     {
       id: 2,
-      title: "Pepperoni Pizza",
-      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScEEuvHxs-W03FTM0zWr9BTT5V0I04d5fytROX57pXUZUeMqHhG6LNmeAJ&s=10",
-      description: "Delicious Pizza with meat, fresh salad, and our secret sauce.",
-      price: 15,
+      title: "كورس البلاغة الشامل",
+      image: img2,
+      description: "مقدمة قوية في علم البلاغة، شرح مبسط للصور الخيالية والمحسنات البديعية.",
+      price: 150,
       ingredients: [
-          { name: "Pizza", icon: GiFullPizza },
-          { name: "Meat", icon: TbMeat },
-          { name: "Salad", icon: LuSalad }
+          { name: "شرح" },
+          { name: "تدريبات" },
+          { name: "مراجعة" }
       ],
-      category:"Pizza"
-      
+      category: "اولى ثانوى"
     },
     {
       id: 3,
-      title: "BBQ Chicken Pizza",
-      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUTKvcwjbgO6Z_1N9VfQlmRl7jTThwzQlMYTfl8Q97vx6CdUYHRO0KRk0&s=10",
-      description: "Delicious Pizza with meat, fresh salad, and our secret sauce.",
-      price: 15,
+      title: "كورس الأدب والنصوص",
+      image: img3,
+      description: "دراسة العصور الأدبية المختلفة وتحليل النصوص الشعرية والنثرية بأسلوب ممتع.",
+      price: 150,
       ingredients: [
-          { name: "Pizza", icon: GiFullPizza },
-          { name: "Meat", icon: TbMeat },
-          { name: "Salad", icon: LuSalad }
+          { name: "شرح" },
+          { name: "نصوص" },
+          { name: "استنتاج" }
       ],
-      category:"Pizza"
-    },{
-      id: 4,
-      title: "Hawaiian Pizza",
-      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR25La52MJBBu1bO3DM51GYvpFcXcfEswoP8YaMt1FmTTKbJh1kzFJWDRO6&s=10",
-      description: "Delicious Pizza with meat, fresh salad, and our secret sauce.",
-      price: 15,
-      ingredients: [
-          { name: "Pizza", icon: GiFullPizza },
-          { name: "Meat", icon: TbMeat },
-          { name: "Salad", icon: LuSalad }
-      ],
-      category:"Pizza"
-    },{
-      id: 5,
-      title: "Meat Lovers Pizza",
-      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbOOMgmP5Eylf7QnVvOlY29gaTcEftnwG_vH7-_eCR3-yp3J1Cqw_NQyw&s=10",
-      description: "Delicious Pizza with meat, fresh salad, and our secret sauce.",
-      price: 15,
-      ingredients: [
-          { name: "Pizza", icon: GiFullPizza },
-          { name: "Meat", icon: TbMeat },
-          { name: "Salad", icon: LuSalad }
-      ],
-      category:"Pizza"
-    },{
-      id: 6,
-      title: "Veggie Supreme Pizza",
-      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT50cMzElkAp51bvp9qjfFTCe4G4DNwCj-WmYepq2sqmQQOwOn2qDEkjro&s=10",
-      description: "Delicious Pizza with meat, fresh salad, and our secret sauce.",
-      price: 15,
-      ingredients: [
-          { name: "Pizza", icon: GiFullPizza },
-          { name: "Meat", icon: TbMeat },
-          { name: "Salad", icon: LuSalad }
-      ],
-      category:"Pizza"
-    },{
-      id: 7,
-      title: "Four Cheese Pizza",
-      image: "https://dinnerthendessert.com/wp-content/uploads/2023/09/Brooklyn-Style-Pizza-021-e1739392916685.jpg",
-      description: "Delicious Pizza with meat, fresh salad, and our secret sauce.",
-      price: 15,
-      ingredients: [
-          { name: "Pizza", icon: GiFullPizza },
-          { name: "Meat", icon: TbMeat },
-          { name: "Salad", icon: LuSalad }
-      ],
-      category:"Pizza"
-    },{
-      id: 8,
-      title: "Buffalo Chicken Pizza",
-      image: "https://assets.surlatable.com/m/15a89c2d9c6c1345/72_dpi_webp-REC-283110_Pizza-jpg",
-      description: "Delicious Pizza with meat, fresh salad, and our secret sauce.",
-      price: 15,
-      ingredients: [
-          { name: "Pizza", icon: GiHamburger },
-          { name: "Meat", icon: TbMeat },
-          { name: "Salad", icon: LuSalad }
-      ],
-      category:"Pizza"
+      category: "اولى ثانوى"
     },
-
+    {
+      id: 4,
+      title: "كورس القراءة المتحررة",
+      image: img4,
+      description: "تدريب عملي على كيفية التعامل مع قطع القراءة المتحررة واستنتاج الأفكار.",
+      price: 150,
+      ingredients: [
+          { name: "قراءة" },
+          { name: "تدريبات" },
+          { name: "امتحان" }
+      ],
+      category: "اولى ثانوى"
+    },
+    {
+      id: 5,
+      title: "ورشة النحو المكثفة",
+      image: img5,
+      description: "ورشة عمل لحل مئات الأسئلة على كل دروس النحو المقررة.",
+      price: 150,
+      ingredients: [
+          { name: "حل أسئلة" },
+          { name: "تريكات" },
+          { name: "مراجعة" }
+      ],
+      category: "اولى ثانوى"
+    },
+    {
+      id: 6,
+      title: "المراجعة النهائية (بلاغة)",
+      image: img6,
+      description: "مراجعة ليلة الامتحان لفرع البلاغة لضمان الدرجة النهائية.",
+      price: 150,
+      ingredients: [
+          { name: "ملخص" },
+          { name: "تدريبات" },
+          { name: "امتحان" }
+      ],
+      category: "اولى ثانوى"
+    },
+    {
+      id: 7,
+      title: "المراجعة النهائية (أدب)",
+      image: img7,
+      description: "تجميعة لأهم نقاط الأدب والنصوص المتوقعة في الامتحان.",
+      price: 150,
+      ingredients: [
+          { name: "شرح" },
+          { name: "تدريبات" },
+          { name: "مراجعة" }
+      ],
+      category: "اولى ثانوى"
+    },
+    {
+      id: 8,
+      title: "كورس الحل الشامل",
+      image: img8,
+      description: "حل امتحانات شاملة على المنهج بالكامل لكسر رهبة الامتحان.",
+      price: 150,
+      ingredients: [
+          { name: "امتحانات" },
+          { name: "أفكار" },
+          { name: "تقييم" }
+      ],
+      category: "اولى ثانوى"
+    },
     {
       id: 9,
-      title: "Classic Smash Burger",
-      image: "https://assets.bonappetit.com/photos/5d1cb1880813410008e914fc/1:1/w_2560%2Cc_limit/Print-Summer-Smash-Burger.jpg",
-      description: "Delicious Burger with meat, french frise, and our secret sauce.",
-      price: 20,
+      title: "كورس النحو المتقدم",
+      image: img1,
+      description: "شرح تفصيلي لقواعد النحو للصف الثاني الثانوي بأسلوب مستر باسم المبتكر.",
+      price: 200,
       ingredients: [
-          { name: "Burger", icon: GiHamburger },
-          { name: "Meat", icon: TbMeat },
-          { name: "Fries", icon: CiFries }
+          { name: "شرح" },
+          { name: "تطبيق" },
+          { name: "امتحان" }
       ],
-      category:"Burger"
+      category: "تانيه ثانوى"
     },
     {
       id: 10,
-      title: "Double Cheese Burger",
-      image: "https://assets.bonappetit.com/photos/5b919cb83d923e31d08fed17/1:1/w_2560%2Cc_limit/basically-burger-1.jpg",
-      description: "Delicious Burger with meat, french frise, and our secret sauce.",
-      price: 20,
+      title: "كورس البلاغة وعلم المعاني",
+      image: img2,
+      description: "تعمق في فروع البلاغة وعلم المعاني مع تدريبات على أبيات شعرية متنوعة.",
+      price: 200,
       ingredients: [
-          { name: "Burger", icon: GiHamburger },
-          { name: "Meat", icon: TbMeat },
-          { name: "Fries", icon: CiFries }
+          { name: "شرح" },
+          { name: "تدريبات" },
+          { name: "مراجعة" }
       ],
-      category:"Burger"
+      category: "تانيه ثانوى"
     },
     {
       id: 11,
-      title: "Bacon BBQ Burger",
-      image: "https://www.foodandwine.com/thmb/XE8ubzwObCIgMw7qJ9CsqUZocNM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/MSG-Smash-Burger-FT-RECIPE0124-d9682401f3554ef683e24311abdf342b.jpg",
-      description: "Delicious Burger with meat, french frise, and our secret sauce.",
-      price: 20,
+      title: "كورس الأدب التفاعلي",
+      image: img3,
+      description: "ربط الأدب بالنصوص بطريقة تسهل الحفظ والفهم العميق.",
+      price: 200,
       ingredients: [
-          { name: "Burger", icon: GiHamburger },
-          { name: "Meat", icon: TbMeat },
-          { name: "Fries", icon: CiFries }
+          { name: "أدب" },
+          { name: "نصوص" },
+          { name: "تطبيق" }
       ],
-      category:"Burger"
+      category: "تانيه ثانوى"
     },
     {
       id: 12,
-      title: "Mushroom Swiss Burger",
-      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXuOtTRl4qlERxJ-_OmGfbZpJrOokQcl6Ft8bcHCLAGZUOtROA7cGTEVhJ&s=10",
-      description: "Delicious Burger with meat, french frise, and our secret sauce.",
-      price: 20,
+      title: "كورس القراءة والتعبير",
+      image: img4,
+      description: "كيفية التعامل مع أسئلة القراءة المتحررة وكتابة التعبير الوظيفي والإبداعي.",
+      price: 200,
       ingredients: [
-          { name: "Burger", icon: GiHamburger },
-          { name: "Meat", icon: TbMeat },
-          { name: "Fries", icon: CiFries }
+          { name: "قراءة" },
+          { name: "تعبير" },
+          { name: "امتحان" }
       ],
-      category:"Burger"
+      category: "تانيه ثانوى"
     },
     {
       id: 13,
-      title: "Spicy Jalapeno Burger",
-      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVxPdpVotzwxxVFuFUX53fqtd_Jj3DQlxGmW5yV7pYKZUWqn0kPsNWfJI&s=10",
-      description: "Delicious Burger with meat, french frise, and our secret sauce.",
-      price: 20,
+      title: "معسكر النحو الشامل",
+      image: img5,
+      description: "معسكر تدريبي لحل أصعب أفكار النحو المتوقعة في الامتحانات.",
+      price: 200,
       ingredients: [
-          { name: "Burger", icon: GiHamburger },
-          { name: "Meat", icon: TbMeat },
-          { name: "Fries", icon: CiFries }
+          { name: "حل أسئلة" },
+          { name: "تريكات" },
+          { name: "مراجعة" }
       ],
-      category:"Burger"
+      category: "تانيه ثانوى"
     },
     {
       id: 14,
-      title: "Texas Smokehouse Burger",
-      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDGsW4DHN1VaURDxLe-maWYBRp8UJxAPpDNIvf06IkRg&s=10",
-      description: "Delicious Burger with meat, french frise, and our secret sauce.",
-      price: 20,
+      title: "ورشة النصوص المتحررة",
+      image: img6,
+      description: "تدريب مكثف على النصوص الشعرية والنثرية المتحررة.",
+      price: 200,
       ingredients: [
-          { name: "Burger", icon: GiHamburger },
-          { name: "Meat", icon: TbMeat },
-          { name: "Fries", icon: CiFries }
+          { name: "نصوص" },
+          { name: "تحليل" },
+          { name: "امتحان" }
       ],
-      category:"Burger"
+      category: "تانيه ثانوى"
     },
     {
       id: 15,
-      title: "Crispy Chicken Burger",
-      image: "https://www.foodandwine.com/thmb/DI29Houjc_ccAtFKly0BbVsusHc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/crispy-comte-cheesburgers-FT-RECIPE0921-6166c6552b7148e8a8561f7765ddf20b.jpg",
-      description: "Delicious Burger with meat, french frise, and our secret sauce.",
-      price: 20,
+      title: "المراجعة النهائية (تيرم)",
+      image: img7,
+      description: "مراجعة شاملة لجميع فروع المادة استعداداً لامتحان نهاية الفصل الدراسي.",
+      price: 200,
       ingredients: [
-          { name: "Burger", icon: GiHamburger },
-          { name: "Meat", icon: TbMeat },
-          { name: "Fries", icon: CiFries }
+          { name: "ملخص" },
+          { name: "تدريبات" },
+          { name: "مراجعة" }
       ],
-      category:"Burger"
+      category: "تانيه ثانوى"
     },
     {
       id: 16,
-      title: "Vegan Beyond Burger",
-      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9nCnuFJNdwrO-4WUj9Skng3p6A9KBRgrVM8WViQ7TKzQJD3k1JZx9FGc&s=10",
-      description: "Delicious Burger with meat, french frise, and our secret sauce.",
-      price: 20,
+      title: "كورس بنك الأسئلة",
+      image: img8,
+      description: "حل بنك أسئلة متكامل يغطي كل جزئيات المنهج.",
+      price: 200,
       ingredients: [
-          { name: "Burger", icon: GiHamburger },
-          { name: "Meat", icon: TbMeat },
-          { name: "Fries", icon: CiFries }
+          { name: "أسئلة" },
+          { name: "أفكار" },
+          { name: "تقييم" }
       ],
-      category:"Burger"
+      category: "تانيه ثانوى"
     },
-
     {
       id: 17,
-      title: "Classic Chicken Shawerma",
-      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqhEizgU5DnGHFXU-o7qi9vLdA1uQH3uKwRS3Rg0v5WQXuA84-uMe1tws&s=10",
-      description: "Delicious Shawerma with Chicken, french frise, and our secret sauce.",
-      price: 25,
+      title: "كورس النحو - الثانوية العامة",
+      image: img1,
+      description: "شرح المنهج بالكامل من الصفر، وتغطية كافة التريكات والأفكار العليا.",
+      price: 250,
       ingredients: [
-          { name: "Shawerma", icon: GiSandwich },
-          { name: "Meat", icon: TbMeat },
-          { name: "Fries", icon: CiFries }
+          { name: "شرح" },
+          { name: "تريكات" },
+          { name: "امتحان" }
       ],
-      category:"Shawerma"
+      category: "تالته ثانوى"
     },
     {
       id: 18,
-      title: "Beef Meat Shawerma",
-      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQm9uyICnRQhKnJ4gepI8ZD_FGAFMr11KuZLMPPu9J1oNpjbhOBVBmCFqMq&s=10",
-      description: "Delicious Shawerma with Chicken, french frise, and our secret sauce.",
-      price: 25,
+      title: "كورس البلاغة التراكمية",
+      image: img2,
+      description: "مراجعة البلاغة التراكمية وشرح منهج الصف الثالث الثانوي بالتفصيل.",
+      price: 250,
       ingredients: [
-          { name: "Shawerma", icon: GiSandwich },
-          { name: "Meat", icon: TbMeat },
-          { name: "Fries", icon: CiFries }
+          { name: "تأسيس" },
+          { name: "شرح" },
+          { name: "تدريبات" }
       ],
-      category:"Shawerma"
+      category: "تالته ثانوى"
     },
     {
       id: 19,
-      title: "Spicy Syrian Shawerma",
-      image: "https://i.ytimg.com/vi/9iNDG0Rr7oI/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLAxiLQIcVR2PyqC4DFqlIee4R3P3w",
-      description: "Delicious Shawerma with Chicken, french frise, and our secret sauce.",
-      price: 25,
+      title: "كورس الأدب والمدارس الشعرية",
+      image: img3,
+      description: "شرح مفصل للمدارس الشعرية وفن الرواية والمسرحية.",
+      price: 250,
       ingredients: [
-          { name: "Shawerma", icon: GiSandwich },
-          { name: "Meat", icon: TbMeat },
-          { name: "Fries", icon: CiFries }
+          { name: "أدب" },
+          { name: "نصوص" },
+          { name: "ربط" }
       ],
-      category:"Shawerma"
+      category: "تالته ثانوى"
     },
     {
       id: 20,
-      title: "Mixed Grill Shawerma",
-      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRC_I_2VH6GyFSca4nEZA_hxshzA0cn8QHrwrFL3Uk-mfTS_wOC4R91m7yb&s=10",
-      description: "Delicious Shawerma with Chicken, french frise, and our secret sauce.",
-      price: 25,
+      title: "كورس القراءة المتحررة",
+      image: img4,
+      description: "التدريب على مهارات الاستنتاج والموازنة في قطع القراءة المتحررة.",
+      price: 250,
       ingredients: [
-          { name: "Shawerma", icon: GiSandwich },
-          { name: "Meat", icon: TbMeat },
-          { name: "Fries", icon: CiFries }
+          { name: "قراءة" },
+          { name: "استنتاج" },
+          { name: "امتحان" }
       ],
-      category:"Shawerma"
+      category: "تالته ثانوى"
     },
     {
       id: 21,
-      title: "Arabic Style Shawerma",
-      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZtLQ_OQ8FeMIF-XD4wc8DI1QDooTIewEnocXncJFCW4UbyLFWqGFQ1uc&s=10",
-      description: "Delicious Shawerma with Chicken, french frise, and our secret sauce.",
-      price: 25,
+      title: "ورشة النصوص الشعرية",
+      image: img5,
+      description: "ورشة عمل متخصصة في كيفية تفكيك وتحليل الأبيات الشعرية الغامضة.",
+      price: 250,
       ingredients: [
-          { name: "Shawerma", icon: GiSandwich },
-          { name: "Meat", icon: TbMeat },
-          { name: "Fries", icon: CiFries }
+          { name: "نصوص" },
+          { name: "تحليل" },
+          { name: "تطبيق" }
       ],
-      category:"Shawerma"
+      category: "تالته ثانوى"
     },
     {
       id: 22,
-      title: "Extra Garlic Shawerma",
-      image: "https://i.ytimg.com/vi/YXLnpPu3Tao/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDWKg530Xxg165ACEb-HIZ2PFEwzA",
-      description: "Delicious Shawerma with Chicken, french frise, and our secret sauce.",
-      price: 25,
+      title: "كورس القصة (الأيام)",
+      image: img6,
+      description: "شرح وتلخيص أحداث قصة الأيام لطه حسين مع تدريبات الاستنتاج.",
+      price: 250,
       ingredients: [
-          { name: "Shawerma", icon: GiSandwich },
-          { name: "Meat", icon: TbMeat },
-          { name: "Fries", icon: CiFries }
+          { name: "قصة" },
+          { name: "تلخيص" },
+          { name: "أسئلة" }
       ],
-      category:"Shawerma"
+      category: "تالته ثانوى"
     },
     {
       id: 23,
-      title: "Shawerma Wrap Combo",
-      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrTdwkWDiHiRutoJyP9RkYz_T23QDg2znehlwNRMsApA&s",
-      description: "Delicious Shawerma with Chicken, french frise, and our secret sauce.",
-      price: 25,
+      title: "ليالي الامتحان (نحو وبلاغة)",
+      image: img7,
+      description: "أقوى مراجعة نهائية تركز على مفاتيح الحل السريعة والدقيقة.",
+      price: 250,
       ingredients: [
-          { name: "Shawerma", icon: GiSandwich },
-          { name: "Meat", icon: TbMeat },
-          { name: "Fries", icon: CiFries }
+          { name: "مراجعة" },
+          { name: "أفكار عليا" },
+          { name: "امتحانات" }
       ],
-      category:"Shawerma"
+      category: "تالته ثانوى"
     },
     {
       id: 24,
-      title: "Lamb Shawerma",
-      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXBIh-1BdYqSv9K42xchRX9-jQbe-hM9i9F6yDjjDxIOXeCYpsYKKqHczJ&s=10",
-      description: "Delicious Shawerma with Chicken, french frise, and our secret sauce.",
-      price: 25,
+      title: "معسكر الامتحانات الشاملة",
+      image: img8,
+      description: "حل امتحانات ثانوية عامة سابقة وامتحانات تجريبية مطابقة للمواصفات.",
+      price: 250,
       ingredients: [
-          { name: "Shawerma", icon: GiSandwich },
-          { name: "Meat", icon: TbMeat },
-          { name: "Fries", icon: CiFries }
+          { name: "امتحانات" },
+          { name: "أفكار" },
+          { name: "تقييم" }
       ],
-      category:"Shawerma"
+      category: "تالته ثانوى"
     }
-    ],
+],
 searchTerm:""
 
 }

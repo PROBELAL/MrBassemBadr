@@ -1,7 +1,7 @@
 import styles from "./Slider.module.css";
-import sliderImg1 from "../assets/imgSlider1.jpg";
-import sliderImg2 from "../assets/imgSlider2.jpg";
-import sliderImg3 from "../assets/imgSlider3.jpg";
+import sliderImg1 from "../assets/img6.jpeg";
+import sliderImg2 from "../assets/img3.jpeg";
+import sliderImg3 from "../assets/img8.jpeg";
 
 const Slider = () => {
     
