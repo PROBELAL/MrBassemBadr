@@ -3,6 +3,9 @@
   justify-content: space-between;
   align-items: center;
   background-color: #433633;
+  background-image: url("https://www.transparenttextures.com/patterns/wood-pattern.png");
+  background-blend-mode: multiply;
+  background-repeat: repeat;
   padding: clamp(10px, 1.5%, 20px) clamp(15px, 2%, 30px);
   position: sticky; 
   top: 0; 

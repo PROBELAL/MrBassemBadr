@@ -17,6 +17,9 @@
     width: clamp(220px, 30vw, 400px); 
     aspect-ratio: 1 / 1; 
     background-color: #433633; 
+    background-image: url("https://www.transparenttextures.com/patterns/wood-pattern.png");
+    
+    background-repeat: repeat;
     border-radius: 50%; 
     display: flex;
     justify-content: center;
