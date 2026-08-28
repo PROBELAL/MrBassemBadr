@@ -5,10 +5,12 @@ import CartItem from "../CartItem/CartItem";
 const Cart = () => {
     const cartItems = useSelector((state) => state.cartReducer.items);
     const total_cost = cartItems.reduce((total, item) => total + item.price, 0);
+    const products_names = cartItems.map((Element)=>Element.title);
     const handleConfirmation=()=>{
         if(total_cost>0){
-            const phoneNumber = "";
-            const message =`طلبك فى الطريق اليك بسعر ${total_cost}شامل التوصيل خلال 45 دقيقه `;
+            const phoneNumber = "201003538925";
+            const names=products_names.join(" و ");
+            const message =`لقد طلبت ${names} والسعر الاجمالى ${total_cost}$`;
             const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
             window.open(url, '_blank'); 
         }
