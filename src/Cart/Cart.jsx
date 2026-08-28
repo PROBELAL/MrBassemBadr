@@ -16,9 +16,9 @@ const Cart = () => {
     });
     const handleConfirmation=()=>{
         if(total_cost>0){
-            const phoneNumber = "201003538925";
-            const names_price=products_names.join(" و ");
-            const message =`لقد طلبت ${names_price} والسعر الاجمالى ${total_cost}$`;
+            const phoneNumber = "201094752357";
+            const names_price=products_names.join("\n");
+            const message =`لقد طلبت ${names_price} \n والسعر الاجمالى ${total_cost}$`;
             const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
             window.open(url, '_blank'); 
         }
