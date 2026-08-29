@@ -19,7 +19,7 @@ const Cart = () => {
     };
 
     const products_names = cartItems.map((Element) => {
-        return `- ${Element.title} (${Element.price}$)`; 
+        return `- ${Element.title} (${Element.price}جنيه )`; 
     });
 
     const handleConfirmation = () => {
@@ -43,7 +43,7 @@ const Cart = () => {
                         `العنوان: ${formData.address}\n` +
                         `الكورسات المطلوبة:\n` +
                         `${names_price}\n\n` +
-                        `السعر الإجمالي: ${total_cost}$`;
+                        `السعر الإجمالي: ${total_cost} جنيه`;
 
         const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
         window.open(url, '_blank'); 
@@ -78,9 +78,10 @@ const Cart = () => {
                         </form>
                     </div>
                     
-                    <h2>Total Price is : {total_cost}$ </h2>
+                    <h2>السعر الإجمالي:{total_cost} جنيه</h2>                                
+
                     <div className={styles["purchases-container"]}>
-                        <button type="button" onClick={handleConfirmation}>Confirm Payment</button>
+                        <button type="button" onClick={handleConfirmation}>إتمام الشراء</button>
                     </div>
 
                 </div>
