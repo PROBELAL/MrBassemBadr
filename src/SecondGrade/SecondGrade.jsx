@@ -68,7 +68,7 @@ const BurgerSection = () => {
 
             <div className={styles["cards"]}>
                 
-                { burgerItems.length > 0? burgerItems.map((item) => <Card key={item.id} item={item} />):"Nothing matches your search 🥲"}
+                { burgerItems.length > 0? burgerItems.map((item) => <Card key={item._id} item={item} />):"Nothing matches your search 🥲"}
                 
                 {isAdmin &&(
                      <button 

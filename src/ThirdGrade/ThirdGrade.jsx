@@ -73,7 +73,7 @@ const ShawermaSection = () => {
 
             <div className={styles["cards"]}>
                 
-                {shawermaItems.length > 0 ? shawermaItems.map((item) => <Card key={item.id} item={item} />):"Nothing matches your search 🥲"}
+                {shawermaItems.length > 0 ? shawermaItems.map((item) => <Card key={item._id} item={item} />):"Nothing matches your search 🥲"}
                 
                 {isAdmin &&(
                      <button 

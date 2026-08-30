@@ -63,7 +63,7 @@ const PizzaSection = () => {
             </div>
 
             <div className={styles["cards"]}>
-                { pizzas.length > 0 ? pizzas.map((pizza) => <Card key={pizza.id} item={pizza} />):"Nothing matches your search 🥲"}
+                { pizzas.length > 0 ? pizzas.map((pizza) => <Card key={pizza._id} item={pizza} />):"Nothing matches your search 🥲"}
                 {isAdmin &&(
                      <button 
                          className={styles["addBtn"]} 

@@ -9,8 +9,21 @@ import { FaShoppingCart } from "react-icons/fa";
 
 const Card=({item})=>{
     const dispatch=useDispatch();
-    function addToCart(){
-        dispatch(addItem(item))
+    const addToCart= async()=>{
+        try{
+            const response=await fetch('https://mr-bassem-badr-backend.vercel.app/cartitem',{method: "POST",
+                headers:{"Content-Type":"application/json"},
+                body:JSON.stringify(item)
+            });
+            if (response.ok) {
+                const savedItem = await response.json();
+                dispatch(addItem(savedItem));
+            } else {
+                console.error("Failed to add to cart");
+            }
+            
+
+        }catch(error){console.error(error)}
     }
     return(<>
         <div className={styles["card-container"]}>

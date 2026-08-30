@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import styles from "./Cart.module.css"
+import styles from "./Cart.module.css";
 import { useSelector, useDispatch } from 'react-redux'; 
-
 import CartItem from "../CartItem/CartItem";
+import useFetchAndDispatch from "../CustomHooks/useFetchAndDispatch";
+import { setCartItems } from "../Store/cartSlice";
 
 const Cart = () => {
+    const { loading, error } = useFetchAndDispatch('https://mr-bassem-badr-backend.vercel.app/cartitem', setCartItems);
     const cartItems = useSelector((state) => state.cartReducer.items);
     const total_cost = cartItems.reduce((total, item) => total + item.price, 0);
     
@@ -49,11 +51,14 @@ const Cart = () => {
         window.open(url, '_blank'); 
     }
 
+    if (loading) return <h2 style={{ textAlign: "center", marginTop: "50px" }}>جاري تحميل السلة...</h2>;
+    if (error) return <h2 style={{ textAlign: "center", marginTop: "50px" }}>حدث خطأ: {error}</h2>;
+
     return (
         <>
         <section className={styles["container"]}>
                 <div className={styles["Purchese"]}>
-                    {cartItems.map((item) => <CartItem key={item.uniqueId || item.id} item={item}/>)}
+                    {cartItems.map((item) => <CartItem key={item._id} item={item}/>)}
                 </div>
                 
                 <div className={styles["purchese-info"]}>
@@ -78,7 +83,7 @@ const Cart = () => {
                         </form>
                     </div>
                     
-                    <h2>السعر الإجمالي:{total_cost} جنيه</h2>                                
+                    <h2>السعر الإجمالي:{total_cost} جنيه</h2>                               
 
                     <div className={styles["purchases-container"]}>
                         <button type="button" onClick={handleConfirmation}>إتمام الشراء</button>
@@ -89,4 +94,5 @@ const Cart = () => {
         </>
     );
 }
+
 export default Cart;

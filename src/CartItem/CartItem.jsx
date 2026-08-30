@@ -3,11 +3,23 @@ import { FaRegTrashAlt } from "react-icons/fa";
 import { useDispatch } from "react-redux";
 import { removeItem } from "../Store/cartSlice"; 
 
+
 const CartItem = ({ item }) => {
+    
     const dispatch = useDispatch();
-    function handleDelete(e){
-        e.stopPropagation();
-        dispatch(removeItem(item.uniqueId));
+    const  handleDelete= async()=>{
+        try{
+            const response= await fetch(`https://mr-bassem-badr-backend.vercel.app/cartitem/${item._id}`,{method: 'DELETE'});
+            if (response.ok) {
+                dispatch(removeItem(item._id));
+            } else {
+                console.error("REMOVE WENT WRONG ");
+            }
+
+        }catch(error){
+            console.error(error);
+        }
+        
 
     }
 
