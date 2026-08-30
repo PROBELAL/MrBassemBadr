@@ -34,7 +34,7 @@ const CartItem = ({ item }) => {
            
             <div className={styles.details}>
                 <h3>{item.title}</h3>
-                <p className={styles.price}>{item.price}$</p>
+                <p className={styles.price}>{item.price} جنيه</p>
             </div>
 
             
