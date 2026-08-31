@@ -43,7 +43,7 @@ const Header = () => {
                 <SearchBar/>
                 <Link to="/cart" className={styles.cartIconContainer}>
                    {token ? (<FaShoppingCart size={24} />):(<FaShoppingCart size={24} style={{display:"none"}} />)} 
-                    {cartItems.length > 0 && (
+                       {cartItems.length > 0 && token &&(
                         <span className={styles.badge}>
                             {cartItems.length}
                         </span>
