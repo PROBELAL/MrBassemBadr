@@ -7,13 +7,26 @@ const useFetchAndDispatch = (url, actionCreator) => {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        fetch(url)
+      
+        const token = localStorage.getItem("userToken");
+
+        
+        const fetchOptions = {
+            method: "GET",
+            headers: {}
+        };
+
+        if (token) {
+            fetchOptions.headers["Authorization"] = token;
+        }
+
+        
+        fetch(url, fetchOptions)
             .then((res) => {
                 if (!res.ok) throw Error("فشل جلب البيانات");
                 return res.json();
             })
             .then((data) => {
-                
                 dispatch(actionCreator(data)); 
                 setLoading(false);
             })
@@ -23,7 +36,7 @@ const useFetchAndDispatch = (url, actionCreator) => {
             });
     }, [url, actionCreator, dispatch]);
 
-   
     return { loading, error }; 
 };
+
 export default useFetchAndDispatch;

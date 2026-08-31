@@ -40,6 +40,9 @@ const Header = () => {
                     )}
                 </Link>
                 {/*<button onClick={() => dispatch(toggleIsAdmin())}>isAdmin</button> */}
+                <Link to="/login">
+                    <button className={styles["loginBtn"]}>تسجيل الدخول</button>
+                </Link>
                 
             </div>
                 

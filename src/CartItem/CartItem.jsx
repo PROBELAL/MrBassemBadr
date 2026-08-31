@@ -9,7 +9,12 @@ const CartItem = ({ item }) => {
     const dispatch = useDispatch();
     const  handleDelete= async()=>{
         try{
-            const response= await fetch(`https://mr-bassem-badr-backend.vercel.app/cartitem/${item._id}`,{method: 'DELETE'});
+            const token = localStorage.getItem("userToken");
+            const response= await fetch(`https://mr-bassem-badr-backend.vercel.app/cartitem/${item._id}`,{method: 'DELETE',
+                headers: {
+                    "Authorization": token 
+                }
+            });
             if (response.ok) {
                 dispatch(removeItem(item._id));
             } else {

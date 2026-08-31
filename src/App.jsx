@@ -9,8 +9,10 @@ import CartItem from "./CartItem/CartItem"
 import SecondGrade from "./SecondGrade/SecondGrade"
 import ThirdGrade from "./ThirdGrade/ThirdGrade"
 import HomeSection from "./HomeSection/HomeSection"
-import  useFetchAndDispatch  from './CustomHooks/useFetchAndDispatch';
+import useFetchAndDispatch  from './CustomHooks/useFetchAndDispatch';
+import LoginSection from './LoginSection/LoginSection';
 import{setProducts} from "./Store/ProductSlice"
+
 
 const App = () => {
   const{loading,error}=useFetchAndDispatch('https://mr-bassem-badr-backend.vercel.app/product',setProducts);
@@ -36,6 +38,7 @@ const App = () => {
     />
     
     <Route path="/cart" element={<Cart />} />
+    <Route path="/login" element={<LoginSection />} />
 
     
     <Route path="*" element={<Navigate to="/" replace />} />

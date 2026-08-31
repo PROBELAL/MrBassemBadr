@@ -101,28 +101,28 @@
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
-.headerFuncs button {
+.loginBtn {
     
     padding: clamp(0.5rem, 1vw, 1rem) clamp(0.8rem, 1.2vw, 1.2rem);
-    background-color: #E63946;
+    background-color: #DECBB7;
     border: none;
     border-radius: 20px;
     cursor: pointer;
-    color: white;
+    color:#433633;
     font-size: clamp(12px, 1.2vw, 16px);
-    box-shadow: 0 4px 0 #B32332, 0 8px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 0 #b3a08d, 0 8px 15px rgba(0, 0, 0, 0.1);
     transition: all 0.15s ease;
 }
 
-.headerFuncs button:hover {
+.loginBtn:hover {
     transform: translateY(-2px); 
-    box-shadow: 0 6px 0 #B32332, 0 12px 20px rgba(0, 0, 0, 0.15); 
-    background-color: #f04351; 
+    box-shadow: 0 6px 0 #b3a08d, 0 12px 20px rgba(0, 0, 0, 0.15); 
+    background-color: #e6d5c2; 
 }
 
-.headerFuncs button:active {
+.loginBtn:active {
     transform: translateY(4px); 
-    box-shadow: 0 0 0 #B32332, 0 2px 5px rgba(0, 0, 0, 0.1); 
+    box-shadow: 0 0 0 #b3a08d, 0 2px 5px rgba(0, 0, 0, 0.1); 
 }
 
 

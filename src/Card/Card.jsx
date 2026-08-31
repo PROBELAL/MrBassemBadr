@@ -11,8 +11,10 @@ const Card=({item})=>{
     const dispatch=useDispatch();
     const addToCart= async()=>{
         try{
+            const token = localStorage.getItem("userToken");
             const response=await fetch('https://mr-bassem-badr-backend.vercel.app/cartitem',{method: "POST",
-                headers:{"Content-Type":"application/json"},
+                headers:{"Content-Type":"application/json","Authorization": token},
+                
                 body:JSON.stringify(item)
             });
             if (response.ok) {
@@ -20,6 +22,7 @@ const Card=({item})=>{
                 dispatch(addItem(savedItem));
             } else {
                 console.error("Failed to add to cart");
+                alert("يجب تسجيل الدخول أولاً لإضافة كورسات للسلة");
             }
             
 
