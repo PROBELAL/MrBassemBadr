@@ -31,7 +31,7 @@ const useFetchAndDispatch = (url, actionCreator) => {
                 setLoading(false);
             })
             .catch((err) => {
-                setError(err.message);
+                setError("فشل تحميل البيانات");
                 setLoading(false);
             });
     }, [url, actionCreator, dispatch]);

@@ -52,7 +52,7 @@ const Cart = () => {
     }
 
     if (loading) return <h2 style={{ textAlign: "center", marginTop: "50px" }}>جاري تحميل السلة...</h2>;
-    if (error) return <h2 style={{ textAlign: "center", marginTop: "50px" }}>حدث خطأ: {error}</h2>;
+    if (error) return <h2 style={{ textAlign: "center", marginTop: "50px",color:"white" }}>أضف شئ للعربه</h2>;
 
     return (
         <>
