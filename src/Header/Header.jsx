@@ -5,11 +5,21 @@ import { FaShoppingCart } from "react-icons/fa";
 import { useSelector, useDispatch } from "react-redux"
 import {toggleIsLoggedIn, toggleIsAdmin} from "../Store/AuthSlice"
 import SearchBar from "../SearchBar/SearchBar";
+import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
+    const navigate = useNavigate();
+    const token = localStorage.getItem("userToken");
     const cartItems = useSelector((state) => state.cartReducer.items);
     const isAdmin = useSelector((state)=>state.AuthReducer.isAdmin);
     const dispatch= useDispatch();
+    const handleLogout = () => {
+        
+        localStorage.removeItem("userToken");
+        
+       
+        navigate("/");
+    };
     
     return (
         <header className={styles.headerContainer}>
@@ -40,9 +50,13 @@ const Header = () => {
                     )}
                 </Link>
                 {/*<button onClick={() => dispatch(toggleIsAdmin())}>isAdmin</button> */}
-                <Link to="/login">
-                    <button className={styles["loginBtn"]}>تسجيل الدخول</button>
-                </Link>
+                {token ? (
+                    <button onClick={handleLogout} className={styles["loginBtn"]}>تسجيل الخروج</button>
+                    ) : (
+                    <Link to="/login">
+                        <button className={styles["loginBtn"]}>تسجيل الدخول</button>
+                    </Link>
+                )}
                 
             </div>
                 
