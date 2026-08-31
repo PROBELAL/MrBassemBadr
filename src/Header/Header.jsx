@@ -42,7 +42,7 @@ const Header = () => {
             <div className={styles["headerFuncs"]}>
                 <SearchBar/>
                 <Link to="/cart" className={styles.cartIconContainer}>
-                    <FaShoppingCart size={24} />
+                   {token ? (<FaShoppingCart size={24} />):(<FaShoppingCart size={24} style={{display:"none"}} />)} 
                     {cartItems.length > 0 && (
                         <span className={styles.badge}>
                             {cartItems.length}
