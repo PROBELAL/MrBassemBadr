@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import styles from "./LoginSection.module.css"; 
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const LoginSection = () => {
+    const navigate = useNavigate();
  
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -24,6 +26,7 @@ const LoginSection = () => {
         localStorage.setItem("userToken", myToken);
 
         alert("تم الدخول بنجاح !");
+        navigate("/");
         
 
     }catch(error){
