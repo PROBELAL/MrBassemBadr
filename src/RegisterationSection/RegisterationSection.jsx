@@ -15,7 +15,7 @@ const Register = () => {
         setError(null); 
 
         try {
-            const response = await fetch("http://localhost:5000/userRegister", {
+            const response = await fetch("https://mr-bassem-badr-backend.vercel.app/userRegister", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
