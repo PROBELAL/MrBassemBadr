@@ -31,7 +31,8 @@ const ProductSlice=createSlice({
     reducers:{
         addProduct:(state,action)=>{state.Products.push(action.payload);},
         setSearchTerm:(state,action)=>{state.searchTerm=action.payload},
-        setProducts:(state,action)=>{state.Products=action.payload}
+        setProducts:(state,action)=>{state.Products=action.payload},
+        deleteProduct: (state, action) => {state.Products = state.Products.filter(product => product._id !== action.payload);}
     }
 })
 
