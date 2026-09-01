@@ -3,7 +3,7 @@ import logoImg from "../assets/logo3.jpg"
 import styles from "./Header.module.css";
 import { FaShoppingCart } from "react-icons/fa";
 import { useSelector, useDispatch } from "react-redux"
-import {toggleIsLoggedIn, toggleIsAdmin} from "../Store/AuthSlice"
+import { toggleIsLoggedIn, toggleIsAdmin } from "../Store/AuthSlice"
 import SearchBar from "../SearchBar/SearchBar";
 import { useNavigate } from 'react-router-dom';
 
@@ -12,39 +12,32 @@ const Header = () => {
     const token = localStorage.getItem("userToken");
     const cartItems = useSelector((state) => state.cartReducer.items);
     const isAdmin = useSelector((state)=>state.AuthReducer.isAdmin);
-    const dispatch= useDispatch();
+    const dispatch = useDispatch();
+
     const handleLogout = () => {
-        
-        
         localStorage.removeItem("userToken");
-        
-       
         localStorage.removeItem("userRole"); 
         
-        
-        window.location.href = "/";
-        
-       
         navigate("/");
+        
+        setTimeout(() => {
+            window.location.reload();
+        }, 100);
     };
     
     return (
         <header className={styles.headerContainer}>
-            
-            
             <div className={styles.logoContainer}>
                 <Link to="/">
                     <h2>باسم بدر</h2>
                 </Link>
             </div>
             
-           
             <ul className={styles["nav-links"]}>
                 <li><a href="#pizza-section">اولى ثانوى</a></li>
                 <li><a href="#burger-section">تانيه ثانوى</a></li>
                 <li><a href="#shawerma-section">تالته ثانوى</a></li>
             </ul>
-            
             
             <div className={styles["headerFuncs"]}>
                 <SearchBar/>
@@ -56,7 +49,6 @@ const Header = () => {
                         </span>
                     )}
                 </Link>
-                {/*<button onClick={() => dispatch(toggleIsAdmin())}>isAdmin</button> */}
                 {token ? (
                     <button onClick={handleLogout} className={styles["loginBtn"]}>تسجيل الخروج</button>
                     ) : (
@@ -64,16 +56,14 @@ const Header = () => {
                         <button className={styles["loginBtn"]}>تسجيل الدخول</button>
                     </Link>
                 )}
-                {token? (<p> </p>
-                    
+                {token ? (
+                    <p> </p>
                 ):(
                     <Link to="/Register">
                         <button className={styles["loginBtn"]}>انشاء حساب</button>
                     </Link>
                 )}
-                
             </div>
-                
         </header>
     );
 }

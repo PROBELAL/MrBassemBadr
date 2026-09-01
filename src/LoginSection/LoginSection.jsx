@@ -4,58 +4,53 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const LoginSection = () => {
-    const navigate = useNavigate();
- 
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
- 
   const handleSubmit = async(e) => {
     e.preventDefault(); 
     if(!email || !password){
-        return alert("يجب ادخال الايميل والباسورد")
+        return alert("يجب ادخال الايميل والباسورد");
     }
    
     try{
         const response = await axios.post('https://mr-bassem-badr-backend.vercel.app/userLogin',{
-            email:email,
-            password:password
-        })
+            email: email,
+            password: password
+        });
         const data = response.data;
         const myToken = data.token;
+        
         localStorage.setItem("userToken", myToken);
         localStorage.setItem("userRole", data.role);
-        window.location.href = "/";
-
+        
         alert("تم الدخول بنجاح !");
+        
         navigate("/");
         
+        setTimeout(() => {
+            window.location.reload();
+        }, 100);
 
     }catch(error){
        if (error.response) {
-            
             alert(error.response.data.message);
         } else {
-           
             alert("حدث خطأ في الاتصال بالسيرفر");
         }
     }
-    
   };
 
   return (
     <section className={styles["login-section"]}>
       <div className={styles["login-card"]}>
-        
-      
         <div className={styles["login-header"]}>
           <h2 className={styles["login-title"]}>تسجيل الدخول</h2>
           <p className={styles["login-subtitle"]}>أهلاً بك في منصة مستر باسم بدر</p>
         </div>
 
-     
         <form onSubmit={handleSubmit} className={styles["login-form"]}>
-          
           <div className={styles["input-group"]}>
             <label htmlFor="email">البريد الإلكتروني</label>
             <input 
@@ -83,7 +78,6 @@ const LoginSection = () => {
           <button type="submit" className={styles["login-btn"]}>
             تسجيل الدخول
           </button>
-
         </form>
       </div>
     </section>

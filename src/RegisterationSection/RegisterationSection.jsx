@@ -10,9 +10,14 @@ const Register = () => {
     const [error, setError] = useState(null);
     const navigate = useNavigate();
 
-    const handleRegister = async (e) => {
+   const handleRegister = async (e) => {
         e.preventDefault();
         setError(null); 
+
+        if (password.length < 8) {
+            setError("كلمة المرور يجب أن تكون 8 أحرف أو أرقام على الأقل");
+            return;
+        }
 
         try {
             const response = await fetch("https://mr-bassem-badr-backend.vercel.app/userRegister", {
