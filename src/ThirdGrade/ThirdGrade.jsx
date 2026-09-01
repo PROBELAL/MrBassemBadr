@@ -56,7 +56,7 @@ const ShawermaSection = () => {
                 ] 
             };
 
-            const response = await axios.post("http://localhost:5000/product", productData, {
+            const response = await axios.post("https://mr-bassem-badr-backend.vercel.app/product", productData, {
                 headers: {
                     "Authorization": token 
                 }
