@@ -6,6 +6,7 @@ import { addProduct } from "../Store/ProductSlice"
 import { GiSandwich } from "react-icons/gi";
 import { TbMeat } from "react-icons/tb";
 import { CiFries } from "react-icons/ci";
+import axios from 'axios';
 
 const ShawermaSection = () => {
     
@@ -13,10 +14,11 @@ const ShawermaSection = () => {
     const Products = useSelector((state) => state.ProductData.Products);
     const searchTerm = useSelector((state) => state.ProductData.searchTerm);
     
-    const shawermaItems = Products.filter((element)=>element.category==="تالته ثانوى"&& 
+    const shawermaItems = Products.filter((element) => element.category === "تالته ثانوى" && 
             element.title.toLowerCase().includes(searchTerm.toLowerCase())); 
     
-    const isAdmin = useSelector((state)=>state.AuthReducer.isAdmin);
+    const userRole = localStorage.getItem("userRole");
+    const isAdmin = userRole === "admin";
     
     const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -35,33 +37,51 @@ const ShawermaSection = () => {
         });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault(); 
 
-        const newShawerma = {
-            id: Date.now(), 
-            title: formData.title,
-            image: formData.image,
-            price: Number(formData.price), 
-            description: formData.description,
-            category: "Shawerma",
-            ingredients: [
-                { name: formData.category , icon: GiSandwich },
-                { name: "Meat", icon: TbMeat },
-                { name: "Fries", icon: CiFries }
-            ] 
-        };
+        try {
+            const token = localStorage.getItem("userToken");
 
-        dispatch(addProduct(newShawerma));
-        
-        setFormData({ 
-            title: "",
-            image: "",
-            price: "",
-            description: "",
-            category: "Shawerma" 
-        });
-        setIsModalOpen(false);
+            const productData = {
+                title: formData.title,
+                image: formData.image,
+                price: Number(formData.price), 
+                description: formData.description,
+                category: "تالته ثانوى",
+                ingredients: [
+                    { name: formData.category , icon: "GiSandwich" },
+                    { name: "Meat", icon: "TbMeat" },
+                    { name: "Fries", icon: "CiFries" }
+                ] 
+            };
+
+            const response = await axios.post("http://localhost:5000/product", productData, {
+                headers: {
+                    "Authorization": token 
+                }
+            });
+
+            dispatch(addProduct(response.data));
+            
+            alert("تم إضافة المنتج بنجاح في قاعدة البيانات!");
+            setFormData({ 
+                title: "",
+                image: "",
+                price: "",
+                description: "",
+                category: "Shawerma" 
+            });
+            setIsModalOpen(false);
+
+        } catch (error) {
+            console.error(error);
+            if (error.response) {
+                alert(error.response.data.message); 
+            } else {
+                alert("حدث خطأ في الاتصال بالسيرفر");
+            }
+        }
     };
 
     return (

@@ -6,16 +6,23 @@ import { addProduct } from "../Store/ProductSlice"
 import { GiFullPizza } from "react-icons/gi";
 import { TbMeat } from "react-icons/tb";
 import { LuSalad } from "react-icons/lu";
+import axios from 'axios';
 
 const PizzaSection = () => {
     const searchTerm = useSelector((state) => state.ProductData.searchTerm);
     const dispatch = useDispatch();
     const Products = useSelector((state) => state.ProductData.Products);
-    const pizzas = Products.filter((element)=>element.category==="اولى ثانوى"&& 
-            element.title.toLowerCase().includes(searchTerm.toLowerCase()));
-    const isAdmin = useSelector((state)=>state.AuthReducer.isAdmin);
     
+    const pizzas = Products.filter((element) => 
+        element.category === "اولى ثانوى" && 
+        element.title.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+   
     const [isModalOpen, setIsModalOpen] = useState(false);
+    
+    
+    const userRole = localStorage.getItem("userRole");
+    const isAdmin = userRole === "admin"; 
     
     const [formData, setFormData] = useState({
         title: "",
@@ -32,39 +39,64 @@ const PizzaSection = () => {
         });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault(); 
 
-        const newPizza = {
-            id: Date.now(), 
-            title: formData.title,
-            image: formData.image,
-            price: Number(formData.price), 
-            description: formData.description,
-            category:"Pizza",
-            ingredients: [
-                { name: formData.category , icon: GiFullPizza },
-                { name: "Meat", icon: TbMeat },
-                { name: "Salad", icon: LuSalad }
-            ] 
-        };
+        try {
+            
+            const token = localStorage.getItem("userToken");
 
-        dispatch(addProduct(newPizza));
+           
+            const productData = {
+                title: formData.title,
+                image: formData.image,
+                price: Number(formData.price),
+                description: formData.description,
+                category: "اولى ثانوى", 
+              
+                ingredients: [
+                    { name: formData.category, icon: "GiFullPizza" },
+                    { name: "Meat", icon: "TbMeat" },
+                    { name: "Salad", icon: "LuSalad" }
+                ]
+            };
 
-        setFormData({ title: "", image: "", price: "", description: "" ,category:"Pizza"});
-        setIsModalOpen(false);
+           
+            const response = await axios.post("http://localhost:5000/product", productData, {
+                headers: {
+                    "Authorization": token 
+                }
+            });
+
+            
+            dispatch(addProduct(response.data)); 
+
+            alert("تم إضافة المنتج بنجاح في قاعدة البيانات!");
+            setFormData({ title: "", image: "", price: "", description: "", category: "Pizza" });
+            setIsModalOpen(false);
+
+        } catch (error) {
+            console.error(error);
+            if (error.response) {
+
+                alert(error.response.data.message); 
+            } else {
+                alert("حدث خطأ في الاتصال بالسيرفر");
+            }
+        }
     };
 
     return (
         <section id="pizza-section" className={styles["container"]}>
-
             <div className={styles["title"]}>
                 <h2>اولى ثانوى</h2>
             </div>
 
             <div className={styles["cards"]}>
-                { pizzas.length > 0 ? pizzas.map((pizza) => <Card key={pizza._id} item={pizza} />):"Nothing matches your search 🥲"}
-                {isAdmin &&(
+                {pizzas.length > 0 ? pizzas.map((pizza) => <Card key={pizza._id} item={pizza} />) : "Nothing matches your search 🥲"}
+                
+          
+                {isAdmin && (
                      <button 
                          className={styles["addBtn"]} 
                          onClick={() => setIsModalOpen(true)}
@@ -72,22 +104,18 @@ const PizzaSection = () => {
                     +
                     </button>
                 )}
-                
             </div>
 
             {isModalOpen && (
                 <div className={styles["modalOverlay"]}>
                     <div className={styles["modalContent"]}>
-                        
                         <button 
                             className={styles["closeBtn"]} 
                             onClick={() => setIsModalOpen(false)}
                         >
                             X
                         </button>
-
                         <h3>Add Product</h3>
-
                         <form onSubmit={handleSubmit} className={styles["addForm"]}>
                             <input 
                                 type="text" 
@@ -121,14 +149,11 @@ const PizzaSection = () => {
                                 onChange={handleChange}
                                 required
                             ></textarea>
-                            
                             <button type="submit">Add</button>
                         </form>
-
                     </div>
                 </div>
             )}
-
         </section>
     );
 }

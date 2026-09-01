@@ -1,10 +1,8 @@
-
 .container {
     padding: 40px 20px;
     max-width: 1200px;
     margin: 0 auto;
 }
-
 
 .title {
     text-align: center;
@@ -13,25 +11,22 @@
     font-size: 3rem;
 }
 
-
 .cards {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     gap: 20px;
     align-items: stretch;
-    justify-content: center; 
-    justify-items: center;  
+    justify-content: center;
+    justify-items: center;
 }
 
-
 .addBtn {
-    
     width: 100%;
-    min-height: 320px; 
-    background-color: #fff;
-    border: 3px dashed #E63946; 
+    min-height: 320px;
+    background-color: transparent;
+    border: 3px dashed #DECBB7;
     border-radius: 20px;
-    color: #E63946;
+    color: #DECBB7;
     font-size: 3.5rem;
     font-weight: bold;
     cursor: pointer;
@@ -44,11 +39,11 @@
 
 .addBtn:hover {
     transform: translateY(-5px);
-    background-color: #fff5f5; 
-    box-shadow: 0 8px 25px rgba(230, 57, 70, 0.15);
-    border-color: #d90429;
+    background-color: #DECBB7;
+    color: #4A3F35;
+    box-shadow: 0 8px 25px rgba(222, 203, 183, 0.15);
+    border-color: #DECBB7;
 }
-
 
 .modalOverlay {
     position: fixed;
@@ -63,7 +58,6 @@
     z-index: 1000;
 }
 
-
 .modalContent {
     background-color: #ffffff;
     padding: 30px;
@@ -76,17 +70,16 @@
 
 .modalContent h3 {
     margin-bottom: 20px;
-    color: #1D3557;
+    color: #4A3F35;
     text-align: center;
 }
-
 
 .closeBtn {
     position: absolute;
     top: 15px;
     right: 15px;
-    background: #E63946;
-    color: white;
+    background: #4A3F35;
+    color: #DECBB7;
     border: none;
     width: 30px;
     height: 30px;
@@ -96,13 +89,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: background 0.2s;
+    transition: background 0.3s, color 0.3s;
 }
 
 .closeBtn:hover {
-    background-color: #d32f2f;
+    background-color: #DECBB7;
+    color: #4A3F35;
 }
-
 
 .addForm {
     display: flex;
@@ -118,26 +111,27 @@
     font-size: 15px;
     font-family: inherit;
     outline: none;
-    transition: border-color 0.2s;
+    transition: border-color 0.3s;
 }
 
 .addForm input:focus,
 .addForm textarea:focus {
-    border-color: #457B9D;
+    border-color: #DECBB7;
 }
 
 .addForm button[type="submit"] {
-    background-color: #1D3557;
-    color: white;
+    background-color: #DECBB7;
+    color: #4A3F35;
     border: none;
     padding: 12px;
     border-radius: 8px;
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.2s;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .addForm button[type="submit"]:hover {
-    background-color: #457B9D;
+    background-color: #4A3F35;
+    color: #DECBB7;
 }

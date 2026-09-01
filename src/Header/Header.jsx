@@ -15,7 +15,14 @@ const Header = () => {
     const dispatch= useDispatch();
     const handleLogout = () => {
         
+        
         localStorage.removeItem("userToken");
+        
+       
+        localStorage.removeItem("userRole"); 
+        
+        
+        window.location.href = "/";
         
        
         navigate("/");

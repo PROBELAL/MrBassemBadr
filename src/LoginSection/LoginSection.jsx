@@ -17,13 +17,15 @@ const LoginSection = () => {
     }
    
     try{
-        const response = await axios.post("https://mr-bassem-badr-backend.vercel.app/userLogin",{
+        const response = await axios.post('https://mr-bassem-badr-backend.vercel.app/userLogin',{
             email:email,
             password:password
         })
         const data = response.data;
         const myToken = data.token;
         localStorage.setItem("userToken", myToken);
+        localStorage.setItem("userRole", data.role);
+        window.location.href = "/";
 
         alert("تم الدخول بنجاح !");
         navigate("/");

@@ -8,16 +8,20 @@ import { TbMeat } from "react-icons/tb";
 import { LuSalad } from "react-icons/lu";
 import { CiFries } from "react-icons/ci";
 import { GiHamburger } from "react-icons/gi";
+import axios from 'axios';
 
 const BurgerSection = () => {
     const dispatch = useDispatch();
     const Products = useSelector((state) => state.ProductData.Products);
     const searchTerm = useSelector((state) => state.ProductData.searchTerm);
     
-    const burgerItems = Products.filter((element)=>element.category==="تانيه ثانوى"&& 
-            element.title.toLowerCase().includes(searchTerm.toLowerCase()));
+    const burgerItems = Products.filter((element) => 
+        element.category === "تانيه ثانوى" && 
+        element.title.toLowerCase().includes(searchTerm.toLowerCase())
+    );
     
-    const isAdmin = useSelector((state)=>state.AuthReducer.isAdmin);
+    const userRole = localStorage.getItem("userRole");
+    const isAdmin = userRole === "admin"; 
     
     const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -36,27 +40,45 @@ const BurgerSection = () => {
         });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault(); 
 
-        const newBurger = {
-            id: Date.now(), 
-            title: formData.title,
-            image: formData.image,
-            price: Number(formData.price), 
-            description: formData.description,
-            category: "Burger", 
-            ingredients: [
-                { name: formData.category , icon: GiHamburger },
-                { name: "Meat", icon: TbMeat },
-                { name: "Fries", icon: CiFries}
-            ] 
-        };
+        try {
+            const token = localStorage.getItem("userToken");
 
-        dispatch(addProduct(newBurger));
-        
-        setFormData({ title: "", image: "", price: "", description: "", category: "Burger" });
-        setIsModalOpen(false);
+            const productData = {
+                title: formData.title,
+                image: formData.image,
+                price: Number(formData.price), 
+                description: formData.description,
+                category: "تانيه ثانوى", 
+                ingredients: [
+                    { name: formData.category , icon: "GiHamburger" },
+                    { name: "Meat", icon: "TbMeat" },
+                    { name: "Fries", icon: "CiFries"}
+                ] 
+            };
+
+            const response = await axios.post("http://localhost:5000/product", productData, {
+                headers: {
+                    "Authorization": token 
+                }
+            });
+
+            dispatch(addProduct(response.data));
+            
+            alert("تم إضافة المنتج بنجاح في قاعدة البيانات!");
+            setFormData({ title: "", image: "", price: "", description: "", category: "Burger" });
+            setIsModalOpen(false);
+
+        } catch (error) {
+            console.error(error);
+            if (error.response) {
+                alert(error.response.data.message); 
+            } else {
+                alert("حدث خطأ في الاتصال بالسيرفر");
+            }
+        }
     };
 
     return (
