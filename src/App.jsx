@@ -12,6 +12,7 @@ import HomeSection from "./HomeSection/HomeSection"
 import useFetchAndDispatch  from './CustomHooks/useFetchAndDispatch';
 import LoginSection from './LoginSection/LoginSection';
 import{setProducts} from "./Store/ProductSlice"
+import RegisterationSection from './RegisterationSection/RegisterationSection';
 
 
 const App = () => {
@@ -39,6 +40,8 @@ const App = () => {
     
     <Route path="/cart" element={<Cart />} />
     <Route path="/login" element={<LoginSection />} />
+     <Route path="/Register" element={<RegisterationSection />} />
+    
 
     
     <Route path="*" element={<Navigate to="/" replace />} />

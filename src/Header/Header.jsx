@@ -57,6 +57,13 @@ const Header = () => {
                         <button className={styles["loginBtn"]}>تسجيل الدخول</button>
                     </Link>
                 )}
+                {token? (<p> </p>
+                    
+                ):(
+                    <Link to="/Register">
+                        <button className={styles["loginBtn"]}>انشاء حساب</button>
+                    </Link>
+                )}
                 
             </div>
                 
