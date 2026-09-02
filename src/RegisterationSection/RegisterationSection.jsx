@@ -2,7 +2,6 @@ import styles from "./RegisterationSection.module.css"
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 
-
 const Register = () => {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
@@ -10,12 +9,46 @@ const Register = () => {
     const [error, setError] = useState(null);
     const navigate = useNavigate();
 
-   const handleRegister = async (e) => {
+    const handleRegister = async (e) => {
         e.preventDefault();
         setError(null); 
+        
+        
+        if (username.startsWith(" ")) {
+            setError("لا يمكن لاسم المستخدم أن يبدأ بمسافة");
+            return;
+        }
+        
+        if (username.endsWith(" ")) {
+            setError("لا يمكن لاسم المستخدم أن ينتهي بمسافة");
+            return;
+        }
+        
+        if (username.includes("  ")) {
+            setError("لا يمكن لاسم المستخدم احتواء أكثر من مسافة بين الكلمات");
+            return;
+        }
+
+        
+        if (password.includes(" ")) {
+            setError("لا يمكن لكلمة المرور احتواء أي مسافات");
+            return;
+        }
 
         if (password.length < 8) {
             setError("كلمة المرور يجب أن تكون 8 أحرف أو أرقام على الأقل");
+            return;
+        }
+        
+        if (email.includes(" ")) {
+            setError("البريد الإلكتروني لا يمكن أن يحتوي على مسافات");
+            return;
+        }
+
+        const finalEmail = email.toLowerCase();
+        const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+        if (!emailRegex.test(email)) {
+            setError("صيغة البريد الإلكتروني غير صحيحة");
             return;
         }
 
@@ -25,7 +58,8 @@ const Register = () => {
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify({ username, email, password })
+               
+                body: JSON.stringify({ username, email: finalEmail, password })
             });
 
             const data = await response.json();
